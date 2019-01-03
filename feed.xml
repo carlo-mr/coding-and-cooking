@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-01-03T10:47:39+00:00</updated><id>/feed.xml</id><title type="html">Coding and Cooking</title><subtitle></subtitle><author><name>Carlo</name></author><entry><title type="html">A simple Web API using Claudia.js, AWS and DynamoDB</title><link href="/coding/simple-web-api-using-claudiajs/" rel="alternate" type="text/html" title="A simple Web API using Claudia.js, AWS and DynamoDB" /><published>2017-11-27T11:00:00+00:00</published><updated>2017-11-27T11:00:00+00:00</updated><id>/coding/simple-web-api-using-claudiajs</id><content type="html" xml:base="/coding/simple-web-api-using-claudiajs/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Recently I played around with Claudia.js and AWS Lambda. And I thought that could be a good technical stack for the “Illegal or frowned upon” api.
+So I gave the Claudia.js API Builder a chance – and it was so easy that I want to quickly write this up here.&lt;/p&gt;
+
+&lt;h1 id=&quot;claudiajs&quot;&gt;Claudia.js&lt;/h1&gt;
+&lt;p&gt;In the first place Claudia.js is a deployment tool for Node.js based projects and eases the use of AWS by abstracting a lot of configuration and deployment steps.&lt;/p&gt;
+
+&lt;p&gt;On top of the deployment tools Claudia.js offers an API Builder and a BotBuilder API (which I will cover in another post).&lt;/p&gt;
+
+&lt;p&gt;The API Builder allows it to easily build serverless Web APIs using the AWS API Gateway.
+For the very basic examples please refer to the very good Tutorials and Documentation on the &lt;a href=&quot;https://Claudia.js.com/tutorials/index.html&quot;&gt;official site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;hands-on&quot;&gt;Hands-On&lt;/h1&gt;
+&lt;p&gt;While writing this post I’ll build the Web API for this example live, I hope that by doing this I will not forget any crucial point. You can find the link to the code at the bottom.&lt;/p&gt;
+
+&lt;p&gt;As example I’ll take the statement class from “Illegal or frowned upon”.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-typescript&quot; data-lang=&quot;typescript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Statement&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;illegalVotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;frownedUponVotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;step-1--create-the-dynamodb-table&quot;&gt;Step 1 – create the DynamoDB table&lt;/h2&gt;
+&lt;p&gt;Create an DynamoDB Table for the statement as shown in the screenshot.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/simple-web-api/iofu-statement-dynamodb.png&quot; alt=&quot;DynamoDb config&quot; /&gt;
+  
+    &lt;figcaption&gt;DynamoDB config.
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;step-2--initialize-the-project&quot;&gt;Step 2 – initialize the project&lt;/h2&gt;
+
+&lt;p&gt;Create a empty directory. Init a new npm project. Install claudia-api-builder and aws-sdk and save them dependency.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mkdir iofu-aws
+npm init 
+npm install claudia-api-builder &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt;
+npm install aws-sdk &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;To be able to access DynamoDB the service needs special permissions. These can be passed to Claudia.js so that it is applied to our lambda function when deployed.&lt;/p&gt;
+
+&lt;p&gt;Create a access-dynamodb.json inside a policy folder.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;w&quot;&gt;  
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2012-10-17&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Statement&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Action&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dynamodb:DeleteItem&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dynamodb:GetItem&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dynamodb:PutItem&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dynamodb:Scan&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Effect&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Allow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Resource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;*&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;step-3--implement-the-api&quot;&gt;Step 3 – Implement the API&lt;/h2&gt;
+&lt;p&gt;Create the entry point for the api (app.js). For the moment it will provide the possibility to POST a new statement and store it in the DynamoDB and a GET for all stored statements.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ApiBuilder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'claudia-api-builder'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;AWS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'aws-sdk'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'statement'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ApiBuilder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;dynamoDb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AWS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DynamoDB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DocumentClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Create new statement&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/statement'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;'use strict'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;TableName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;illegalVotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;illegalVotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;frownedUponVotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;frownedUponVotes&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// return dynamo result directly&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dynamoDb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;201&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Return HTTP status 201 - Created when successful&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// GET all statements&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/statement'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dynamoDb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;TableName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;step-4--deploy&quot;&gt;Step 4 – Deploy&lt;/h2&gt;
+
+&lt;p&gt;Now to the deployment capabilities of Claudia.js come into play.
+Note: Before this will work you’ll need to perform some general configuration that can be found in the Claudia.js documentation.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;claudia create &lt;span class=&quot;nt&quot;&gt;--region&lt;/span&gt; us-east-1 &lt;span class=&quot;nt&quot;&gt;--api-module&lt;/span&gt; app &lt;span class=&quot;nt&quot;&gt;--policies&lt;/span&gt; policy&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What happens when executing the above statement?&lt;/p&gt;
+
+&lt;p&gt;Claudia.js will first build the code and create a zip file with all the contents.
+It then creates the initial lambda function and also the necessary role.
+And finally uploads/deploys the created zip.&lt;/p&gt;
+
+&lt;p&gt;The –region option tells Claudia.js in which region to deploy the function (Thank you, Cpt. Obvious!).&lt;/p&gt;
+
+&lt;p&gt;The –api-module defines the main module of our function. As we exported the built api in the app.js file we give it the name of that file.&lt;/p&gt;
+
+&lt;p&gt;The –policies option is a directory or file pattern for additional IAM (Identity and Access Management) policies to be included in the role that is created to run the lambda function.&lt;/p&gt;
+
+&lt;p&gt;As a result of the create command Claudia.js prints us the configuration (and stores it in a file called claudia.json in the project root directory).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;lambda&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;iofu-aws-executor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;iofu-aws&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;region&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;us-east-1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;api&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2hmzoogb6l&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;module&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;app&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;step-5--test-it&quot;&gt;Step 5 – test it&lt;/h2&gt;
+
+&lt;p&gt;Now we can add a test statement using curl from the terminal. And afterwards retrieve all statements with.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;curl &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; POST &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; @./test/test.json https://2hmzoogb6l.execute-api.us-east-1.amazonaws.com/latest/statement&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;curl https://2hmzoogb6l.execute-api.us-east-1.amazonaws.com/latest/statement&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;And thats it.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I think ClaudiaJS is pretty handy.
+The abstraction it provides for the AWS stuff is quite nice, especially when starting with the topic. You don’t need to understand everything whats happening under the hood. Also the Api builder is quite easy to use and the examples provided on the website and the different example projects on GitHub are easy to comprehend.&lt;/p&gt;
+
+&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The complete code can be found on my &lt;a href=&quot;https://github.com/carlo-mr/iofu-aws&quot;&gt;GitHub repo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://claudiajs.com/&quot;&gt;Claudia.js Website&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/claudiajs&quot;&gt;Claudia.js on GitHub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/trademark-guidelines/&quot;&gt;AWS Trademark Guidelines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Teaser Photo by rawpixel.com from &lt;a href=&quot;https://www.pexels.com/photo/blue-skies-clouds-cut-fingers-335907/&quot;&gt;Pexels&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Carlo</name></author><summary type="html">Recently I played around with Claudia.js and AWS Lambda.</summary></entry><entry><title type="html">The Duties of a Software Architect</title><link href="/coding/duties-of-a-software-architect/" rel="alternate" type="text/html" title="The Duties of a Software Architect" /><published>2017-10-03T11:00:00+00:00</published><updated>2017-10-03T11:00:00+00:00</updated><id>/coding/duties-of-a-software-architect</id><content type="html" xml:base="/coding/duties-of-a-software-architect/">&lt;p&gt;Last week I had the opportunity to attended the workshop “Mastering Software Architectures” by &lt;a href=&quot;http://gernotstarke.de/&quot;&gt;Gernot Starke&lt;/a&gt; and &lt;a href=&quot;http://www.peterhruschka.eu/&quot;&gt;Peter Hruschka&lt;/a&gt;.
+If you ever have the chance to have a training with the two you should take the opportunity!&lt;/p&gt;
+
+&lt;p&gt;In this post I want to recap the 6 duties that form the software architect role:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Clarify requirements&lt;/li&gt;
+  &lt;li&gt;Communicate&lt;/li&gt;
+  &lt;li&gt;Design Structures&lt;/li&gt;
+  &lt;li&gt;Design transversal concepts&lt;/li&gt;
+  &lt;li&gt;Accompany the implementation&lt;/li&gt;
+  &lt;li&gt;Evaluate Architectures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These tasks do not follow any specific order are related to each other. During the project or rather product lifecycle they repeatedly occur.&lt;/p&gt;
+
+&lt;h1 id=&quot;clarify-requirements&quot;&gt;Clarify requirements&lt;/h1&gt;
+&lt;p&gt;If you work in the software industry you will not be surprised that requirements are not always clear. You might ask why it is the architects task to clarify these. Don’t we have functional experts or similar which can nail the requirements? Generally yes. But thats no always the case. And also in good requirement documents there will be room for for assumptions.
+Its the task of the architect to actively clarify and make things explicit.&lt;/p&gt;
+
+&lt;p&gt;Also software architecture should be adequate. To fulfill this the architect needs to clearly understand the requirements and then derive quality goals from these. The quality goals can later help to evaluate the architecture.&lt;/p&gt;
+
+&lt;h1 id=&quot;communicate&quot;&gt;Communicate&lt;/h1&gt;
+&lt;p&gt;The architect is the role in a development team with the most interfaces/connections to other stakeholders. Therefore he needs to be able to communicate in a variety of “languages” and ways.
+Being able to analyze a bug together with the developers in the code and then communicating the results to management is one example. The way the architect needs to talk to these different stakeholders are very different.&lt;/p&gt;
+
+&lt;p&gt;With the developers everything revolves around code. In which component/class is the bug? How can we fix it?&lt;/p&gt;
+
+&lt;p&gt;Management is (usually) not interested in the component that causes the bug. They need to know how much it costs. How many customers are concerned and how long it will take to fix it.&lt;/p&gt;
+
+&lt;p&gt;Also the architect should keep an eye on a up-to-date list of the stakeholders. So that he is aware of who to talk to for different topics. This list can and will evolve over time. I already mentioned two stakeholders but the list can be very long. Additionally to the management and the developers there usually are testers, operation people, security officers, customers, external partners and so on. Each of those should to be addressed slightly differently.
+This aspect should also be reflected in the architecture documentation. A good architect clarifies with the relevant stakeholders what information they expect from the documentation and tailors the different parts to their needs.&lt;/p&gt;
+
+&lt;h1 id=&quot;design-structures--transversal-concepts&quot;&gt;Design structures &amp;amp; transversal concepts&lt;/h1&gt;
+&lt;p&gt;Designing the structure and finding/defining transversal or cross cutting concepts in the system is probably the main duty of the architect and has many dependencies to there other activities.&lt;/p&gt;
+
+&lt;p&gt;There are many ways to find out how to structure the system. None of them is the “correct” one, instead you should use multiple approaches and actively switch between those to see things from a different perspective. It can help to first start with a rough first idea about technical aspects and refine this over time iteratively. Also it can help to keep the quality goals in mind that have been deducted from the requirements, often these can give an orientation.&lt;/p&gt;
+
+&lt;p&gt;Some keywords that might help for the structure design process are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Top-Down, Bottom-Up&lt;/li&gt;
+  &lt;li&gt;Quality Driven Design&lt;/li&gt;
+  &lt;li&gt;Domain Driven Design&lt;/li&gt;
+  &lt;li&gt;Patterns&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Concepts are aspects that affect multiple building blocks of an application and guide the implementation. They give a more general solution approach. Sometimes selected tools or frameworks come already with a set of concepts. The areas where concepts are applied are diverse.
+It could be the way persistence is handled in the system, or logging, transactions, security and many more.
+The documentation for concepts should answer the following questions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Why is a problem solved using a distinct concept?
+** Show the purpose&lt;/li&gt;
+  &lt;li&gt;What is the concept?
+** Be very detailed&lt;/li&gt;
+  &lt;li&gt;How is the concept applied?
+**Show examples, a prototype, code snippets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;accompany-the-implementation&quot;&gt;Accompany the implementation&lt;/h1&gt;
+&lt;p&gt;A critical duty is to accompany the implementation in order to ensure that the decisions taken are also reflected in the code (at different levels). 
+A close follow-up also allows to adjust when it shows that decision should be reconsidered. Generally the architectural tasks are to be handled iteratively. Trying things out, gathering feedback and then (if necessary) adjusting is important.
+There are a lot of ways for the architect (or the team) to follow-up during the implementation:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Code reviews&lt;/li&gt;
+  &lt;li&gt;Code analysis&lt;/li&gt;
+  &lt;li&gt;Pair/Mob Programming&lt;/li&gt;
+  &lt;li&gt;A Definition of Done&lt;/li&gt;
+  &lt;li&gt;Coding guidelines&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;evaluate-architectures&quot;&gt;Evaluate Architectures&lt;/h1&gt;
+&lt;p&gt;The evaluation of software architecture can either be done quantitatively or qualitatively.&lt;/p&gt;
+
+&lt;p&gt;Quantitatively means that the software is mapped to numbers. There are different measures that can be chosen. Lines of code, complexity, coupling of different components, resource consumption and many more.
+It is advisable to combine multiple measures to find hotspots in the code.&lt;/p&gt;
+
+&lt;p&gt;Qualitative evaluation tries to identify risks regarding the quality goals of an architecture and the interplay of different quality goals.
+Therefore the chosen quality goals are refined with concrete scenarios. For each of the quality goals a possible implementation approach is selected.
+Then the documentation and the code of the software is taken and evaluated against the scenarios and implementation approaches.
+The outcome of this is a subjective evaluation which should help to identify which of the quality goals might be at risk.&lt;/p&gt;
+
+&lt;p&gt;The overall outcome of the assessment can be taken as input for other architectural tasks.&lt;/p&gt;
+
+&lt;h1 id=&quot;two-more-things&quot;&gt;Two more things&lt;/h1&gt;
+&lt;p&gt;To conclude I want to highlight not all of the different duties need to be done by the same person in the team. The role of the architect can (and should) be spread across the team. Generally there will still be one person that takes the responsibility for the taken decisions – you could call that person the “Chief Architect”.&lt;/p&gt;
+
+&lt;p&gt;As the architect should take responsibility for the system (that it is build correctly and with the correct quality measures), he should also be involved (or involve himself) in different processes. For example the employee or tool selection processes. Furthermore he should have the competency to take design decisions – how can he take responsibility for decisions otherwise.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Teaser Photo from &lt;a href=&quot;https://www.pexels.com/de-de/foto/arbeit-arbeitsplatz-buro-business-273222/&quot;&gt;Pexels&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Carlo</name></author><category term="architecture" /><summary type="html">A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation</summary></entry><entry><title type="html">I bought a cow</title><link href="/cooking/buyacow/" rel="alternate" type="text/html" title="I bought a cow" /><published>2017-09-10T11:00:00+00:00</published><updated>2017-09-10T11:00:00+00:00</updated><id>/cooking/buyacow</id><content type="html" xml:base="/cooking/buyacow/">&lt;p&gt;Ok not a complete cow but some parts. The idea is called cow sharing or crowd butching/butchering.&lt;/p&gt;
+
+&lt;p&gt;I was made aware of that concept by a tweet of @andreasdotorg – who I follow since I heard a german podcast featuring him talking about the history and process of brewing beer – which actually made me starting brewing beer, but this is a different topic.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;de&quot;&gt;&lt;p lang=&quot;de&quot; dir=&quot;ltr&quot;&gt;Es ist Rouladentag! (Hab ich euch schon &lt;a href=&quot;https://t.co/dfXdTco2AR&quot;&gt;https://t.co/dfXdTco2AR&lt;/a&gt; empfohlen?) &lt;a href=&quot;https://t.co/lSevbCECBS&quot;&gt;pic.twitter.com/lSevbCECBS&lt;/a&gt;&lt;/p&gt;&amp;mdash; andreasdotorg (@andreasdotorg) &lt;a href=&quot;https://twitter.com/andreasdotorg/status/888676049164357633?ref_src=twsrc%5Etfw&quot;&gt;22. Juli 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The idea is to have a more sustainable stock breeding. To know where your meat comes from and also to foster animal welfare.
+I think I would have problems completely living vegan or even vegetarian, but I like the idea to know that the animals have been raised well and that also the farmers can make a living out of it.&lt;/p&gt;
+
+&lt;p&gt;While researching I came across different sites and finally decided to try &lt;a href=&quot;https://www.kaufnekuh.de/?invite=598c9af86649d&quot;&gt;kaufnekuh.de*&lt;/a&gt; .
+It not only appealed to me because of their interesting graphic on their website to show how much of the current cow is already sold.
+But also because they offer a small package with about 3,6 kg of meat, which I liked to test the whole thing.&lt;/p&gt;
+
+&lt;p&gt;When I finally decided to try it out, the cow on sale was DE 8418 from Joseph and Thomas Pfaff from Ravensburg.&lt;/p&gt;
+
+&lt;p&gt;I decided to go for the small package without the BBQ option. If you choose the BBQ option some parts that are not ideal for the BBQ (e.g. the goulash) is turned into burgers or sausages.&lt;/p&gt;
+
+&lt;p&gt;This package contains the following parts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Roastbeef (300g)&lt;/li&gt;
+  &lt;li&gt;Roulade (2x 180g)&lt;/li&gt;
+  &lt;li&gt;Steak (2x 160g)&lt;/li&gt;
+  &lt;li&gt;Strips (1x 240g)&lt;/li&gt;
+  &lt;li&gt;Brisket (1x 350g)&lt;/li&gt;
+  &lt;li&gt;Soupmeat (1x 250g)&lt;/li&gt;
+  &lt;li&gt;Ground Beef (2x 240g)&lt;/li&gt;
+  &lt;li&gt;Goulash (2x 240g)&lt;/li&gt;
+  &lt;li&gt;Burgers (4x 120g)&lt;/li&gt;
+  &lt;li&gt;Chipolata Sausage (6x 75g)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some people who I told that I bought (parts of) a cow wondered why I couldn’t directly choose the parts that I want. I think this is part of the whole idea as a cow consists of way more than just steaks.
+That’s something I personally like about this concept. As it brings me to try out new things. There are parts in my package that I have never cooked before and where I don’t know yet what I can make out of them.&lt;/p&gt;
+
+&lt;p&gt;After buying I was constantly kept up-to-date via mail about the current status. I was for instance informed when the cow was completely sold, when it was butchered, and when it was ripe and prepared for shipment. This was pretty good as it took around 3 weeks for the cow to arrive and every mail fed my anticipation.&lt;/p&gt;
+
+&lt;p&gt;The Cow – or better my parts – where delivered in a thermo bag which I could directly put into the fridge…&lt;/p&gt;
+
+&lt;p&gt;What I also liked was the list included in the package that you can pin to your fridge and mark what meat you took out, so that you can easily keep track of what you still have.&lt;/p&gt;
+
+&lt;figure class=&quot;third &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/buyacow/cow.png&quot; title=&quot;Selling status indicator&quot;&gt;
+        &lt;img src=&quot;/assets/images/buyacow/cow.png&quot; alt=&quot;Selling status indicator&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-package-1.jpg&quot; title=&quot;Package shot 1&quot;&gt;
+        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-package-1.jpg&quot; alt=&quot;Package shot 1&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-package-2.jpg&quot; title=&quot;Package shot 2&quot;&gt;
+        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-package-2.jpg&quot; alt=&quot;Package shot 2&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-package-3.jpg&quot; title=&quot;Package shot 3&quot;&gt;
+        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-package-3.jpg&quot; alt=&quot;Package shot 3&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-content.jpg&quot; title=&quot;Package content&quot;&gt;
+        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-content.jpg&quot; alt=&quot;Package content&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-list.jpg&quot; title=&quot;Package list&quot;&gt;
+        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-list.jpg&quot; alt=&quot;Package list&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;Photos
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;</content><author><name>Carlo</name></author><category term="beef" /><summary type="html">Sustainable stock breeding. Delivered to your home.</summary></entry><entry><title type="html">Vegan Mousse au Chocolat</title><link href="/cooking/chick-peas-salad/" rel="alternate" type="text/html" title="Vegan Mousse au Chocolat" /><published>2017-08-26T11:00:00+00:00</published><updated>2017-08-26T11:00:00+00:00</updated><id>/cooking/chick-peas-salad</id><content type="html" xml:base="/cooking/chick-peas-salad/">&lt;p&gt;Today I had a small dilemma.
+I could not decide if I want to continue programming to process on the coding-related blog series or if I should finally add a cooking related post to my site.&lt;/p&gt;
+
+&lt;p&gt;As so often my wife helped me decide. She wished to try the vegan mousse au chocolat that I learned about last week in a cooking class.&lt;/p&gt;
+
+&lt;p&gt;Neither me nor my wife are vegan (or even vegetarian) but nevertheless we like to look beyond horizons and see different things.
+I was lucky to get that vegan cooking class as a birthday gift from my family and was generally be interested what we will be cooking.&lt;/p&gt;
+
+&lt;p&gt;I was quite surprise when I saw mousse au chocolate in the recipe booklet. I was even more surprised by the main ingredient which is called &lt;em&gt;Aquafaba&lt;/em&gt;. Something I had never heard before. So I asked the cooking instructor what Aquafaba is:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aquafaba is the name for the water in which chickpeas have been cooked.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This blew my mind.&lt;/p&gt;
+
+&lt;p&gt;Wait what? You can turn the water from the chick peas can into mousse au chocolat? Me – and also the other participants – where really surprised. Afterwards I checked on the net and probably one could have known Aquafaba before, as especially in the vegan cuisine it seems to be pretty common – as it works as a good replacement for egg white. The name is latin “Aqua” – water and “faba” – bean.&lt;/p&gt;
+
+&lt;p&gt;If you want to learn more about Aquafaba check out &lt;a href=&quot;http://aquafaba.com&quot;&gt;Aquafaba.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So how does this work? Pretty much how you would make standard mousse au chocolat actually.&lt;/p&gt;
+
+&lt;p&gt;Ingredients for 4 small servings:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;125ml Aquafaba (e.g. from one 400gr can of chick peas)&lt;/li&gt;
+  &lt;li&gt;1 tsp Winestone baking soda&lt;/li&gt;
+  &lt;li&gt;0,5 tsp Lemonjuice&lt;/li&gt;
+  &lt;li&gt;120gr dark chocolate&lt;/li&gt;
+  &lt;li&gt;30gr powdered sugar&lt;/li&gt;
+  &lt;li&gt;pinch of salt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;First the chocolate is chopped in fine pieces and then slowly melted in a water bath.&lt;/p&gt;
+
+&lt;p&gt;In the meanwhile add the lemon juice and baking soda to the Aquafaba and put it in the kitchen machine to stiff. This may take a few minutes. But in the end it will look just like stiffed egg white.&lt;/p&gt;
+
+&lt;p&gt;After a few moments you can add the powdered sugar (sift it before adding) and the little salt.&lt;/p&gt;
+
+&lt;p&gt;When the chocolate is melted turn the heat off and let the chocolate cool down a little bit. It is important that the chocolate cools down so that it is nearly hard again before you can fold the stiffed Aquafaba with the chocolate.&lt;/p&gt;
+
+&lt;p&gt;Once the Aquafaba is stiff and the chocolate cooled down carefully mix everything.&lt;/p&gt;
+
+&lt;p&gt;Then fill the mass in 4 bowls and put them in the fridge. Leave them in the fridge for at least 2 hours ( thats the time we gave it in the cooking class while eating the other dishes). If you can cool them even longer to have better texture.&lt;/p&gt;
+
+&lt;figure class=&quot;third &quot;&gt;
+  
+    
+      &lt;a href=&quot;/assets/images/chick-peas-salad/start.jpg&quot; title=&quot;Aquafaba before mixing&quot;&gt;
+        &lt;img src=&quot;/assets/images/chick-peas-salad/start.jpg&quot; alt=&quot;Aquafaba before mixing&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/chick-peas-salad/stiff.jpg&quot; title=&quot;Stiff Aquafaba&quot;&gt;
+        &lt;img src=&quot;/assets/images/chick-peas-salad/stiff.jpg&quot; alt=&quot;Stiff Aquafaba&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/chick-peas-salad/finished-mousse.jpg&quot; title=&quot;Finished Mousse&quot;&gt;
+        &lt;img src=&quot;/assets/images/chick-peas-salad/finished-mousse.jpg&quot; alt=&quot;Finished Mousse&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+    
+      &lt;a href=&quot;/assets/images/chick-peas-salad/ingredients-mousse.jpg&quot; title=&quot;Ingredients&quot;&gt;
+        &lt;img src=&quot;/assets/images/chick-peas-salad/ingredients-mousse.jpg&quot; alt=&quot;Ingredients for the mousse&quot; /&gt;
+      &lt;/a&gt;
+    
+  
+  
+    &lt;figcaption&gt;Photos
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;</content><author><name>Carlo</name></author><category term="dessert" /><category term="vegan" /><summary type="html">Turning chick peas into mousse au chocolat</summary></entry></feed>

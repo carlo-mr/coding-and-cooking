@@ -1,0 +1,655 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>The Duties of a Software Architect - Coding and Cooking</title>
+<meta name="description" content="A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Coding and Cooking">
+<meta property="og:title" content="The Duties of a Software Architect">
+<meta property="og:url" content="/coding/duties-of-a-software-architect/">
+
+
+  <meta property="og:description" content="A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation">
+
+
+
+  <meta property="og:image" content="/assets/images/keyboard.jpg">
+
+
+
+  <meta name="twitter:site" content="@coding-and-cooking">
+  <meta name="twitter:title" content="The Duties of a Software Architect">
+  <meta name="twitter:description" content="A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation">
+  <meta name="twitter:url" content="/coding/duties-of-a-software-architect/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="/assets/images/keyboard.jpg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2017-10-03T11:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="/coding/duties-of-a-software-architect/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Carlo",
+      "url": "http://github.com/pages/carlo-mr/coding-and-cooking",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Coding and Cooking Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Coding and Cooking</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/coding" >Coding</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/cooking" >Cooking</a>
+            </li><li class="masthead__menu-item">
+              <a href="/readinglist" >Reading List</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" "
+>
+  
+    <img src="/assets/images/keyboard.jpg" alt="The Duties of a Software Architect" class="page__hero-image">
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/profile-square.jpg" alt="Carlo" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Carlo</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Hello,
+ I’m software developer and architect mainly Java (Spring) and Angular 2+.
+ Also I am a passionate cook and like to cook for family and friends.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Frankfurt, Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://www.coding-and-cooking.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/codingcooking" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+            <li><a href="https://github.com/carlo-mr" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="The Duties of a Software Architect">
+    <meta itemprop="description" content="A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation">
+    <meta itemprop="datePublished" content="October 03, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">The Duties of a Software Architect
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Last week I had the opportunity to attended the workshop “Mastering Software Architectures” by <a href="http://gernotstarke.de/">Gernot Starke</a> and <a href="http://www.peterhruschka.eu/">Peter Hruschka</a>.
+If you ever have the chance to have a training with the two you should take the opportunity!</p>
+
+<p>In this post I want to recap the 6 duties that form the software architect role:</p>
+
+<ul>
+  <li>Clarify requirements</li>
+  <li>Communicate</li>
+  <li>Design Structures</li>
+  <li>Design transversal concepts</li>
+  <li>Accompany the implementation</li>
+  <li>Evaluate Architectures</li>
+</ul>
+
+<p>These tasks do not follow any specific order are related to each other. During the project or rather product lifecycle they repeatedly occur.</p>
+
+<h1 id="clarify-requirements">Clarify requirements</h1>
+<p>If you work in the software industry you will not be surprised that requirements are not always clear. You might ask why it is the architects task to clarify these. Don’t we have functional experts or similar which can nail the requirements? Generally yes. But thats no always the case. And also in good requirement documents there will be room for for assumptions.
+Its the task of the architect to actively clarify and make things explicit.</p>
+
+<p>Also software architecture should be adequate. To fulfill this the architect needs to clearly understand the requirements and then derive quality goals from these. The quality goals can later help to evaluate the architecture.</p>
+
+<h1 id="communicate">Communicate</h1>
+<p>The architect is the role in a development team with the most interfaces/connections to other stakeholders. Therefore he needs to be able to communicate in a variety of “languages” and ways.
+Being able to analyze a bug together with the developers in the code and then communicating the results to management is one example. The way the architect needs to talk to these different stakeholders are very different.</p>
+
+<p>With the developers everything revolves around code. In which component/class is the bug? How can we fix it?</p>
+
+<p>Management is (usually) not interested in the component that causes the bug. They need to know how much it costs. How many customers are concerned and how long it will take to fix it.</p>
+
+<p>Also the architect should keep an eye on a up-to-date list of the stakeholders. So that he is aware of who to talk to for different topics. This list can and will evolve over time. I already mentioned two stakeholders but the list can be very long. Additionally to the management and the developers there usually are testers, operation people, security officers, customers, external partners and so on. Each of those should to be addressed slightly differently.
+This aspect should also be reflected in the architecture documentation. A good architect clarifies with the relevant stakeholders what information they expect from the documentation and tailors the different parts to their needs.</p>
+
+<h1 id="design-structures--transversal-concepts">Design structures &amp; transversal concepts</h1>
+<p>Designing the structure and finding/defining transversal or cross cutting concepts in the system is probably the main duty of the architect and has many dependencies to there other activities.</p>
+
+<p>There are many ways to find out how to structure the system. None of them is the “correct” one, instead you should use multiple approaches and actively switch between those to see things from a different perspective. It can help to first start with a rough first idea about technical aspects and refine this over time iteratively. Also it can help to keep the quality goals in mind that have been deducted from the requirements, often these can give an orientation.</p>
+
+<p>Some keywords that might help for the structure design process are:</p>
+
+<ul>
+  <li>Top-Down, Bottom-Up</li>
+  <li>Quality Driven Design</li>
+  <li>Domain Driven Design</li>
+  <li>Patterns</li>
+</ul>
+
+<p>Concepts are aspects that affect multiple building blocks of an application and guide the implementation. They give a more general solution approach. Sometimes selected tools or frameworks come already with a set of concepts. The areas where concepts are applied are diverse.
+It could be the way persistence is handled in the system, or logging, transactions, security and many more.
+The documentation for concepts should answer the following questions:</p>
+
+<ul>
+  <li>Why is a problem solved using a distinct concept?
+** Show the purpose</li>
+  <li>What is the concept?
+** Be very detailed</li>
+  <li>How is the concept applied?
+**Show examples, a prototype, code snippets</li>
+</ul>
+
+<h1 id="accompany-the-implementation">Accompany the implementation</h1>
+<p>A critical duty is to accompany the implementation in order to ensure that the decisions taken are also reflected in the code (at different levels). 
+A close follow-up also allows to adjust when it shows that decision should be reconsidered. Generally the architectural tasks are to be handled iteratively. Trying things out, gathering feedback and then (if necessary) adjusting is important.
+There are a lot of ways for the architect (or the team) to follow-up during the implementation:</p>
+
+<ul>
+  <li>Code reviews</li>
+  <li>Code analysis</li>
+  <li>Pair/Mob Programming</li>
+  <li>A Definition of Done</li>
+  <li>Coding guidelines</li>
+  <li>…</li>
+</ul>
+
+<h1 id="evaluate-architectures">Evaluate Architectures</h1>
+<p>The evaluation of software architecture can either be done quantitatively or qualitatively.</p>
+
+<p>Quantitatively means that the software is mapped to numbers. There are different measures that can be chosen. Lines of code, complexity, coupling of different components, resource consumption and many more.
+It is advisable to combine multiple measures to find hotspots in the code.</p>
+
+<p>Qualitative evaluation tries to identify risks regarding the quality goals of an architecture and the interplay of different quality goals.
+Therefore the chosen quality goals are refined with concrete scenarios. For each of the quality goals a possible implementation approach is selected.
+Then the documentation and the code of the software is taken and evaluated against the scenarios and implementation approaches.
+The outcome of this is a subjective evaluation which should help to identify which of the quality goals might be at risk.</p>
+
+<p>The overall outcome of the assessment can be taken as input for other architectural tasks.</p>
+
+<h1 id="two-more-things">Two more things</h1>
+<p>To conclude I want to highlight not all of the different duties need to be done by the same person in the team. The role of the architect can (and should) be spread across the team. Generally there will still be one person that takes the responsibility for the taken decisions – you could call that person the “Chief Architect”.</p>
+
+<p>As the architect should take responsibility for the system (that it is build correctly and with the correct quality measures), he should also be involved (or involve himself) in different processes. For example the employee or tool selection processes. Furthermore he should have the competency to take design decisions – how can he take responsibility for decisions otherwise.</p>
+
+<p><em>Teaser Photo from <a href="https://www.pexels.com/de-de/foto/arbeit-arbeitsplatz-buro-business-273222/">Pexels</a></em></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#architecture" class="page__taxonomy-item" rel="tag">architecture</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#coding" class="page__taxonomy-item" rel="tag">coding</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-10-03T11:00:00+00:00">October 03, 2017</time></p>
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  
+  <div class="archive__item-teaser">
+    <img src=
+           
+    "/assets/images/simple-web-api/teaser.jpg"
+    
+    alt="">
+  </div>
+  
+  <h2 class="archive__item-title" itemprop="headline">
+    
+    <a href="/coding/simple-web-api-using-claudiajs/" rel="permalink">A simple Web API using Claudia.js, AWS and DynamoDB
+</a>
+    
+  </h2>
+  
+  <p class="page__meta">
+    <span><i class="far fa-calendar" aria-hidden="true"></i> Nov 27 2017</span>
+    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+</span>
+  </p>
+  
+  <p class="page__meta"></p>
+  <p class="archive__item-excerpt" itemprop="description">Recently I played around with Claudia.js and AWS Lambda.
+</p>
+</article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  
+  <div class="archive__item-teaser">
+    <img src=
+           
+    "/assets/images/buyacow/cow.png"
+    
+    alt="">
+  </div>
+  
+  <h2 class="archive__item-title" itemprop="headline">
+    
+    <a href="/cooking/buyacow/" rel="permalink">I bought a cow
+</a>
+    
+  </h2>
+  
+  <p class="page__meta">
+    <span><i class="far fa-calendar" aria-hidden="true"></i> Sep 10 2017</span>
+    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</span>
+  </p>
+  
+  <p class="page__meta"></p>
+  <p class="archive__item-excerpt" itemprop="description">Sustainable stock breeding. Delivered to your home.
+</p>
+</article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  
+  <div class="archive__item-teaser">
+    <img src=
+           
+    "/assets/images/chick-peas-salad/ingredients-mousse.jpg"
+    
+    alt="">
+  </div>
+  
+  <h2 class="archive__item-title" itemprop="headline">
+    
+    <a href="/cooking/chick-peas-salad/" rel="permalink">Vegan Mousse au Chocolat
+</a>
+    
+  </h2>
+  
+  <p class="page__meta">
+    <span><i class="far fa-calendar" aria-hidden="true"></i> Aug 26 2017</span>
+    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</span>
+  </p>
+  
+  <p class="page__meta"></p>
+  <p class="archive__item-excerpt" itemprop="description">Turning chick peas into mousse au chocolat
+</p>
+</article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://www.coding-and-cooking.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/codingcooking" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/carlo-mr" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Carlo. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
