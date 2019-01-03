@@ -1,0 +1,10 @@
+# main links
+main:
+  - title: "Coding"
+    url: /categories/coding
+  - title: "Cooking"
+    url: /categories/cooking
+  - title: "Reading List"
+    url: /readinglist
+  # - title: "Sitemap"
+  #   url: /sitemap/

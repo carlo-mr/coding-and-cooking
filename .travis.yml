@@ -1,0 +1,15 @@
+language: ruby
+cache: bundler
+
+script:
+  - bundle exec jekyll build
+
+rvm:
+ - 2.4
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local_dir: _site
