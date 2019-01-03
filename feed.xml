@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-01-03T10:47:39+00:00</updated><id>/feed.xml</id><title type="html">Coding and Cooking</title><subtitle></subtitle><author><name>Carlo</name></author><entry><title type="html">A simple Web API using Claudia.js, AWS and DynamoDB</title><link href="/coding/simple-web-api-using-claudiajs/" rel="alternate" type="text/html" title="A simple Web API using Claudia.js, AWS and DynamoDB" /><published>2017-11-27T11:00:00+00:00</published><updated>2017-11-27T11:00:00+00:00</updated><id>/coding/simple-web-api-using-claudiajs</id><content type="html" xml:base="/coding/simple-web-api-using-claudiajs/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://carlo-mr.github.io/coding-and-cooking/feed.xml" rel="self" type="application/atom+xml" /><link href="https://carlo-mr.github.io/coding-and-cooking/" rel="alternate" type="text/html" /><updated>2019-01-03T10:53:38+00:00</updated><id>https://carlo-mr.github.io/coding-and-cooking/feed.xml</id><title type="html">Coding and Cooking</title><subtitle></subtitle><author><name>Carlo</name></author><entry><title type="html">A simple Web API using Claudia.js, AWS and DynamoDB</title><link href="https://carlo-mr.github.io/coding-and-cooking/coding/simple-web-api-using-claudiajs/" rel="alternate" type="text/html" title="A simple Web API using Claudia.js, AWS and DynamoDB" /><published>2017-11-27T11:00:00+00:00</published><updated>2017-11-27T11:00:00+00:00</updated><id>https://carlo-mr.github.io/coding-and-cooking/coding/simple-web-api-using-claudiajs</id><content type="html" xml:base="https://carlo-mr.github.io/coding-and-cooking/coding/simple-web-api-using-claudiajs/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
 &lt;p&gt;Recently I played around with Claudia.js and AWS Lambda. And I thought that could be a good technical stack for the “Illegal or frowned upon” api.
 So I gave the Claudia.js API Builder a chance – and it was so easy that I want to quickly write this up here.&lt;/p&gt;
 
@@ -26,7 +26,7 @@ For the very basic examples please refer to the very good Tutorials and Document
 &lt;p&gt;Create an DynamoDB Table for the statement as shown in the screenshot.&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/simple-web-api/iofu-statement-dynamodb.png&quot; alt=&quot;DynamoDb config&quot; /&gt;
+  &lt;img src=&quot;/coding-and-cooking/assets/images/simple-web-api/iofu-statement-dynamodb.png&quot; alt=&quot;DynamoDb config&quot; /&gt;
   
     &lt;figcaption&gt;DynamoDB config.
 &lt;/figcaption&gt;
@@ -154,7 +154,7 @@ The abstraction it provides for the AWS stuff is quite nice, especially when sta
   &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/trademark-guidelines/&quot;&gt;AWS Trademark Guidelines&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Teaser Photo by rawpixel.com from &lt;a href=&quot;https://www.pexels.com/photo/blue-skies-clouds-cut-fingers-335907/&quot;&gt;Pexels&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Carlo</name></author><summary type="html">Recently I played around with Claudia.js and AWS Lambda.</summary></entry><entry><title type="html">The Duties of a Software Architect</title><link href="/coding/duties-of-a-software-architect/" rel="alternate" type="text/html" title="The Duties of a Software Architect" /><published>2017-10-03T11:00:00+00:00</published><updated>2017-10-03T11:00:00+00:00</updated><id>/coding/duties-of-a-software-architect</id><content type="html" xml:base="/coding/duties-of-a-software-architect/">&lt;p&gt;Last week I had the opportunity to attended the workshop “Mastering Software Architectures” by &lt;a href=&quot;http://gernotstarke.de/&quot;&gt;Gernot Starke&lt;/a&gt; and &lt;a href=&quot;http://www.peterhruschka.eu/&quot;&gt;Peter Hruschka&lt;/a&gt;.
+&lt;p&gt;&lt;em&gt;Teaser Photo by rawpixel.com from &lt;a href=&quot;https://www.pexels.com/photo/blue-skies-clouds-cut-fingers-335907/&quot;&gt;Pexels&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Carlo</name></author><summary type="html">Recently I played around with Claudia.js and AWS Lambda.</summary></entry><entry><title type="html">The Duties of a Software Architect</title><link href="https://carlo-mr.github.io/coding-and-cooking/coding/duties-of-a-software-architect/" rel="alternate" type="text/html" title="The Duties of a Software Architect" /><published>2017-10-03T11:00:00+00:00</published><updated>2017-10-03T11:00:00+00:00</updated><id>https://carlo-mr.github.io/coding-and-cooking/coding/duties-of-a-software-architect</id><content type="html" xml:base="https://carlo-mr.github.io/coding-and-cooking/coding/duties-of-a-software-architect/">&lt;p&gt;Last week I had the opportunity to attended the workshop “Mastering Software Architectures” by &lt;a href=&quot;http://gernotstarke.de/&quot;&gt;Gernot Starke&lt;/a&gt; and &lt;a href=&quot;http://www.peterhruschka.eu/&quot;&gt;Peter Hruschka&lt;/a&gt;.
 If you ever have the chance to have a training with the two you should take the opportunity!&lt;/p&gt;
 
 &lt;p&gt;In this post I want to recap the 6 duties that form the software architect role:&lt;/p&gt;
@@ -246,7 +246,7 @@ The outcome of this is a subjective evaluation which should help to identify whi
 
 &lt;p&gt;As the architect should take responsibility for the system (that it is build correctly and with the correct quality measures), he should also be involved (or involve himself) in different processes. For example the employee or tool selection processes. Furthermore he should have the competency to take design decisions – how can he take responsibility for decisions otherwise.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Teaser Photo from &lt;a href=&quot;https://www.pexels.com/de-de/foto/arbeit-arbeitsplatz-buro-business-273222/&quot;&gt;Pexels&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Carlo</name></author><category term="architecture" /><summary type="html">A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation</summary></entry><entry><title type="html">I bought a cow</title><link href="/cooking/buyacow/" rel="alternate" type="text/html" title="I bought a cow" /><published>2017-09-10T11:00:00+00:00</published><updated>2017-09-10T11:00:00+00:00</updated><id>/cooking/buyacow</id><content type="html" xml:base="/cooking/buyacow/">&lt;p&gt;Ok not a complete cow but some parts. The idea is called cow sharing or crowd butching/butchering.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Teaser Photo from &lt;a href=&quot;https://www.pexels.com/de-de/foto/arbeit-arbeitsplatz-buro-business-273222/&quot;&gt;Pexels&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Carlo</name></author><category term="architecture" /><summary type="html">A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation</summary></entry><entry><title type="html">I bought a cow</title><link href="https://carlo-mr.github.io/coding-and-cooking/cooking/buyacow/" rel="alternate" type="text/html" title="I bought a cow" /><published>2017-09-10T11:00:00+00:00</published><updated>2017-09-10T11:00:00+00:00</updated><id>https://carlo-mr.github.io/coding-and-cooking/cooking/buyacow</id><content type="html" xml:base="https://carlo-mr.github.io/coding-and-cooking/cooking/buyacow/">&lt;p&gt;Ok not a complete cow but some parts. The idea is called cow sharing or crowd butching/butchering.&lt;/p&gt;
 
 &lt;p&gt;I was made aware of that concept by a tweet of @andreasdotorg – who I follow since I heard a german podcast featuring him talking about the history and process of brewing beer – which actually made me starting brewing beer, but this is a different topic.&lt;/p&gt;
 
@@ -291,38 +291,38 @@ That’s something I personally like about this concept. As it brings me to try 
 &lt;figure class=&quot;third &quot;&gt;
   
     
-      &lt;a href=&quot;/assets/images/buyacow/cow.png&quot; title=&quot;Selling status indicator&quot;&gt;
-        &lt;img src=&quot;/assets/images/buyacow/cow.png&quot; alt=&quot;Selling status indicator&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/buyacow/cow.png&quot; title=&quot;Selling status indicator&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/buyacow/cow.png&quot; alt=&quot;Selling status indicator&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-package-1.jpg&quot; title=&quot;Package shot 1&quot;&gt;
-        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-package-1.jpg&quot; alt=&quot;Package shot 1&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-package-1.jpg&quot; title=&quot;Package shot 1&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-package-1.jpg&quot; alt=&quot;Package shot 1&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-package-2.jpg&quot; title=&quot;Package shot 2&quot;&gt;
-        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-package-2.jpg&quot; alt=&quot;Package shot 2&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-package-2.jpg&quot; title=&quot;Package shot 2&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-package-2.jpg&quot; alt=&quot;Package shot 2&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-package-3.jpg&quot; title=&quot;Package shot 3&quot;&gt;
-        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-package-3.jpg&quot; alt=&quot;Package shot 3&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-package-3.jpg&quot; title=&quot;Package shot 3&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-package-3.jpg&quot; alt=&quot;Package shot 3&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-content.jpg&quot; title=&quot;Package content&quot;&gt;
-        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-content.jpg&quot; alt=&quot;Package content&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-content.jpg&quot; title=&quot;Package content&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-content.jpg&quot; alt=&quot;Package content&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/buyacow/kaufnekuh-list.jpg&quot; title=&quot;Package list&quot;&gt;
-        &lt;img src=&quot;/assets/images/buyacow/kaufnekuh-list.jpg&quot; alt=&quot;Package list&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-list.jpg&quot; title=&quot;Package list&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/buyacow/kaufnekuh-list.jpg&quot; alt=&quot;Package list&quot; /&gt;
       &lt;/a&gt;
     
   
@@ -330,7 +330,7 @@ That’s something I personally like about this concept. As it brings me to try 
     &lt;figcaption&gt;Photos
 &lt;/figcaption&gt;
   
-&lt;/figure&gt;</content><author><name>Carlo</name></author><category term="beef" /><summary type="html">Sustainable stock breeding. Delivered to your home.</summary></entry><entry><title type="html">Vegan Mousse au Chocolat</title><link href="/cooking/chick-peas-salad/" rel="alternate" type="text/html" title="Vegan Mousse au Chocolat" /><published>2017-08-26T11:00:00+00:00</published><updated>2017-08-26T11:00:00+00:00</updated><id>/cooking/chick-peas-salad</id><content type="html" xml:base="/cooking/chick-peas-salad/">&lt;p&gt;Today I had a small dilemma.
+&lt;/figure&gt;</content><author><name>Carlo</name></author><category term="beef" /><summary type="html">Sustainable stock breeding. Delivered to your home.</summary></entry><entry><title type="html">Vegan Mousse au Chocolat</title><link href="https://carlo-mr.github.io/coding-and-cooking/cooking/chick-peas-salad/" rel="alternate" type="text/html" title="Vegan Mousse au Chocolat" /><published>2017-08-26T11:00:00+00:00</published><updated>2017-08-26T11:00:00+00:00</updated><id>https://carlo-mr.github.io/coding-and-cooking/cooking/chick-peas-salad</id><content type="html" xml:base="https://carlo-mr.github.io/coding-and-cooking/cooking/chick-peas-salad/">&lt;p&gt;Today I had a small dilemma.
 I could not decide if I want to continue programming to process on the coding-related blog series or if I should finally add a cooking related post to my site.&lt;/p&gt;
 
 &lt;p&gt;As so often my wife helped me decide. She wished to try the vegan mousse au chocolat that I learned about last week in a cooking class.&lt;/p&gt;
@@ -376,26 +376,26 @@ I was lucky to get that vegan cooking class as a birthday gift from my family an
 &lt;figure class=&quot;third &quot;&gt;
   
     
-      &lt;a href=&quot;/assets/images/chick-peas-salad/start.jpg&quot; title=&quot;Aquafaba before mixing&quot;&gt;
-        &lt;img src=&quot;/assets/images/chick-peas-salad/start.jpg&quot; alt=&quot;Aquafaba before mixing&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/chick-peas-salad/start.jpg&quot; title=&quot;Aquafaba before mixing&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/chick-peas-salad/start.jpg&quot; alt=&quot;Aquafaba before mixing&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/chick-peas-salad/stiff.jpg&quot; title=&quot;Stiff Aquafaba&quot;&gt;
-        &lt;img src=&quot;/assets/images/chick-peas-salad/stiff.jpg&quot; alt=&quot;Stiff Aquafaba&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/chick-peas-salad/stiff.jpg&quot; title=&quot;Stiff Aquafaba&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/chick-peas-salad/stiff.jpg&quot; alt=&quot;Stiff Aquafaba&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/chick-peas-salad/finished-mousse.jpg&quot; title=&quot;Finished Mousse&quot;&gt;
-        &lt;img src=&quot;/assets/images/chick-peas-salad/finished-mousse.jpg&quot; alt=&quot;Finished Mousse&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/chick-peas-salad/finished-mousse.jpg&quot; title=&quot;Finished Mousse&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/chick-peas-salad/finished-mousse.jpg&quot; alt=&quot;Finished Mousse&quot; /&gt;
       &lt;/a&gt;
     
   
     
-      &lt;a href=&quot;/assets/images/chick-peas-salad/ingredients-mousse.jpg&quot; title=&quot;Ingredients&quot;&gt;
-        &lt;img src=&quot;/assets/images/chick-peas-salad/ingredients-mousse.jpg&quot; alt=&quot;Ingredients for the mousse&quot; /&gt;
+      &lt;a href=&quot;/coding-and-cooking/assets/images/chick-peas-salad/ingredients-mousse.jpg&quot; title=&quot;Ingredients&quot;&gt;
+        &lt;img src=&quot;/coding-and-cooking/assets/images/chick-peas-salad/ingredients-mousse.jpg&quot; alt=&quot;Ingredients for the mousse&quot; /&gt;
       &lt;/a&gt;
     
   
