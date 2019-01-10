@@ -16,13 +16,17 @@ I'll use this page to keep track of what books I've read and what I want to read
 
 [_Daniel Kahneman & Thorsten Schmidt_: __Thinking, Fast & Slow__](https://amzn.to/2Rs4t1m)
 
-[_Hannah Fry_: Hello World: __How to be Human in the Age of the Machine__](https://amzn.to/2R5RIKn)
+[_Nicole Forsgren, Jez Humble, Gene Kim_: __Accelerate: The Science of Lean Software and Devops: Building and Scaling High Performing Technology Organizations__](https://amzn.to/2H6Jzkp)
+
+[_Hannah Fry_: __Hello World: How to be Human in the Age of the Machine__](https://amzn.to/2R5RIKn)
 
 ## Articles
 
 ### January
 
-[_Matt Klein_: Monorepos: Please don’t!](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b)
+[_Matt Klein_: __Monorepos: Please don’t!__](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b)
+
+[_Umar Hansa_: __Chrome DevTools: The five most popular DevTools tips from 2018__](https://umaar.com/dev-tips/190-five-popular-2018-tips/)
 
 
 # 2018
