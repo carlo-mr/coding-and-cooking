@@ -5,25 +5,27 @@ title:  "Vegan Mousse au Chocolat"
 date:   2017-08-26 12:00:00 +0100
 header:
   image: /assets/images/spices.jpg
-  teaser: /assets/images/chick-peas-salad/ingredients-mousse.jpg
+  teaser: /assets/images/vegan-mousse/ingredients-mousse.jpg
+sidebar:
+  - image: /assets/images/vegan-mousse/ingredients-mousse.jpg
 categories: cooking
 tags: dessert vegan
 excerpt: "Turning chick peas into mousse au chocolat"
 gallery:
-  - url: /assets/images/chick-peas-salad/start.jpg
-    image_path: /assets/images/chick-peas-salad/start.jpg
+  - url: /assets/images/vegan-mousse/start.jpg
+    image_path: /assets/images/vegan-mousse/start.jpg
     alt: "Aquafaba before mixing"
     title: "Aquafaba before mixing"
-  - url: /assets/images/chick-peas-salad/stiff.jpg
-    image_path: /assets/images/chick-peas-salad/stiff.jpg
+  - url: /assets/images/vegan-mousse/stiff.jpg
+    image_path: /assets/images/vegan-mousse/stiff.jpg
     alt: "Stiff Aquafaba"
     title: "Stiff Aquafaba"
-  - url: /assets/images/chick-peas-salad/finished-mousse.jpg
-    image_path: /assets/images/chick-peas-salad/finished-mousse.jpg
+  - url: /assets/images/vegan-mousse/finished-mousse.jpg
+    image_path: /assets/images/vegan-mousse/finished-mousse.jpg
     alt: "Finished Mousse"
     title: "Finished Mousse"
-  - url: /assets/images/chick-peas-salad/ingredients-mousse.jpg
-    image_path: /assets/images/chick-peas-salad/ingredients-mousse.jpg
+  - url: /assets/images/vegan-mousse/ingredients-mousse.jpg
+    image_path: /assets/images/vegan-mousse/ingredients-mousse.jpg
     alt: "Ingredients for the mousse"
     title: "Ingredients"
 ---
