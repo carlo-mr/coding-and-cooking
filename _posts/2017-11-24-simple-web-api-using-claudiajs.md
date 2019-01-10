@@ -6,6 +6,8 @@ date:   2017-11-27 12:00:00 +0100
 header:
   image: /assets/images/keyboard.jpg
   teaser: /assets/images/simple-web-api/teaser.jpg
+sidebar:
+  - image: /assets/images/simple-web-api/teaser.jpg
 categories: coding
 excerpt: "Recently I played around with Claudia.js and AWS Lambda."
 ---

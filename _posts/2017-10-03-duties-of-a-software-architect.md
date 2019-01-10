@@ -6,6 +6,8 @@ date:   2017-10-03 12:00:00 +0100
 header:
   image: /assets/images/keyboard.jpg
   teaser: /assets/images/architect-duties/teaser.jpg
+sidebar:
+  - image: /assets/images/architect-duties/teaser.jpg
 categories: coding
 tags: architecture
 excerpt: "A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation Accompaniment and Architecture Evaluation"
