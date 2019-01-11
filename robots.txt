@@ -1,1 +1,1 @@
-Sitemap: https://carlo-mr.github.io/coding-and-cooking/sitemap.xml
+Sitemap: http://coding-and-cooking.com/sitemap.xml
