@@ -11,7 +11,7 @@ sidebar:
 categories: coding
 ---
 
-Since a August 2018 I'm working on a new side project called _FriendLib_. 
+Since August 2018 I'm working on a new side project called _FriendLib_. 
 The basic idea about the app is that you can check which books your friends own and instead of buying the books you ask you friends if you can lend the book. 
 The name is a portmanteau of friendship and library.
 
