@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -111,15 +111,26 @@
   </head>
 
   <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
 
     <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
 
-    <div class="masthead">
+    
+
+<div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
+        
         <a class="site-title" href="/">Coding and Cooking</a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/coding" >Coding</a>
@@ -273,8 +284,6 @@
 
       
 
-      
-
       <!--
   <li>
     <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
@@ -306,15 +315,19 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>I’ll use this page to keep track of what books I’ve read and what I want to read. Links are personalized.</p>
+        <p>I’ll use this page to keep track of books and articles that I’ve read or that I want to read. Links are personalized.</p>
 
 <h1 id="2019">2019</h1>
 
 <h2 id="books">Books</h2>
 
+<p><a href="https://leanpub.com/ddd-by-example"><em>Michael Ploed</em>: <strong>Hands-on Domain-driven Design - by example</strong></a></p>
+
 <p><a href="https://amzn.to/2Rs4t1m"><em>Daniel Kahneman &amp; Thorsten Schmidt</em>: <strong>Thinking, Fast &amp; Slow</strong></a></p>
 
 <p><a href="https://amzn.to/2H6Jzkp"><em>Nicole Forsgren, Jez Humble, Gene Kim</em>: <strong>Accelerate: The Science of Lean Software and Devops: Building and Scaling High Performing Technology Organizations</strong></a></p>
+
+<p><a href="https://amzn.to/2l75MnS"><em>Samin Nosrat</em>: <em>Salt. Fat. Acid. Heat.</em></a></p>
 
 <p><a href="https://amzn.to/2R5RIKn"><em>Hannah Fry</em>: <strong>Hello World: How to be Human in the Age of the Machine</strong></a></p>
 
@@ -325,6 +338,22 @@
 <p><a href="https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b"><em>Matt Klein</em>: <strong>Monorepos: Please don’t!</strong></a></p>
 
 <p><a href="https://umaar.com/dev-tips/190-five-popular-2018-tips/"><em>Umar Hansa</em>: <strong>Chrome DevTools: The five most popular DevTools tips from 2018</strong></a></p>
+
+<h3 id="april">April</h3>
+
+<p><a href="https://medium.com/@gregor.woiwode/how-to-setup-jest-in-an-ionic-4-project-ff1e5b72dd79">How to setup Jest in an Ionic 4 project</a></p>
+
+<p><a href="https://github.com/GregOnNet/ionic-4-jest-setup">Ionic 4 template running tests with Jest</a></p>
+
+<p><a href="https://github.com/McKratt/jest-angular-example">Jest Angular Example</a></p>
+
+<p><a href="https://github.com/pact-foundation/pact-js/issues/213#issuecomment-423175705">Test with Jest AND Angular not end correctly</a></p>
+
+<p><a href="https://github.com/claudiajs/claudia/issues/16">Multiple lambda Entries in claudia.json</a></p>
+
+<h2 id="videos">Videos</h2>
+
+<p><a href="https://www.youtube.com/watch?v=hNW8bdTw_IU"><em>Nick Tune</em>: <strong>Strategic Domain-Driven Design</strong></a></p>
 
 <h1 id="2018">2018</h1>
 
@@ -374,7 +403,7 @@
 
     
 
-    <div class="page__footer">
+    <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
 
@@ -412,7 +441,9 @@
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
 
 
 

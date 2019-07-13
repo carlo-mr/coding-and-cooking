@@ -20,7 +20,12 @@ var store = [{
         "url": "http://coding-and-cooking.com/coding/simple-web-api-using-claudiajs/",
         "teaser":"http://coding-and-cooking.com/assets/images/simple-web-api/teaser.jpg"},{
         "title": "FriendLib - Intro to my current side project",
-        "excerpt":"Since a August 2018 I’m working on a new side project called FriendLib. The basic idea about the app is that you can check which books your friends own and instead of buying the books you ask you friends if you can lend the book. The name is a portmanteau...","categories": ["coding"],
+        "excerpt":"Since August 2018 I’m working on a new side project called FriendLib. The basic idea about the app is that you can check which books your friends own and instead of buying the books you ask you friends if you can lend the book. The name is a portmanteau of...","categories": ["coding"],
         "tags": [],
         "url": "http://coding-and-cooking.com/coding/friendlib-intro/",
-        "teaser":"http://coding-and-cooking.com/assets/images/friendlib-intro/teaser.jpg"}]
+        "teaser":"http://coding-and-cooking.com/assets/images/friendlib-intro/teaser.jpg"},{
+        "title": "Accelerate - The Science of Lean Software and DevOps",
+        "excerpt":"Introduction My first contact with the book “Accelerate - The Science of Lean Software and DevOps” was at the W-Jax conference in 2018. I think it was Eberhard Wolff who mentioned something in the lines of: There are “good” organizations/teams, they deliver (to production) at least once per day and...","categories": ["coding"],
+        "tags": ["architecture","devops","book"],
+        "url": "http://coding-and-cooking.com/coding/accelerate/",
+        "teaser":"http://coding-and-cooking.com/assets/images/accelerate/teaser.jpg"}]

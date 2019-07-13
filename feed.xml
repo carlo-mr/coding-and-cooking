@@ -1,4 +1,261 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://coding-and-cooking.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://coding-and-cooking.com/" rel="alternate" type="text/html" /><updated>2019-01-11T06:43:47+00:00</updated><id>http://coding-and-cooking.com/feed.xml</id><title type="html">Coding and Cooking</title><subtitle></subtitle><author><name>Carlo</name></author><entry><title type="html">FriendLib - Intro to my current side project</title><link href="http://coding-and-cooking.com/coding/friendlib-intro/" rel="alternate" type="text/html" title="FriendLib - Intro to my current side project" /><published>2019-01-10T19:50:00+00:00</published><updated>2019-01-10T19:50:00+00:00</updated><id>http://coding-and-cooking.com/coding/friendlib-intro</id><content type="html" xml:base="http://coding-and-cooking.com/coding/friendlib-intro/">&lt;p&gt;Since a August 2018 I’m working on a new side project called &lt;em&gt;FriendLib&lt;/em&gt;. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://coding-and-cooking.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://coding-and-cooking.com/" rel="alternate" type="text/html" /><updated>2019-07-13T12:39:50+00:00</updated><id>http://coding-and-cooking.com/feed.xml</id><title type="html">Coding and Cooking</title><subtitle></subtitle><author><name>Carlo</name></author><entry><title type="html">Accelerate - The Science of Lean Software and DevOps</title><link href="http://coding-and-cooking.com/coding/accelerate/" rel="alternate" type="text/html" title="Accelerate - The Science of Lean Software and DevOps" /><published>2019-07-12T12:30:00+00:00</published><updated>2019-07-12T12:30:00+00:00</updated><id>http://coding-and-cooking.com/coding/accelerate</id><content type="html" xml:base="http://coding-and-cooking.com/coding/accelerate/">&lt;p&gt;&lt;img src=&quot;/assets/images/accelerate/cover.jpg&quot; alt=&quot;Accelerate Book Cover&quot; title=&quot;Accelerate Book Cover&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;My first contact with the book “Accelerate -  The Science of Lean Software and DevOps” was at the W-Jax conference in 2018. I think it was &lt;a href=&quot;https://ewolff.com&quot;&gt;Eberhard Wolff&lt;/a&gt; who mentioned something in the lines of:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;There are “good” organizations/teams, they deliver (to production) at least once per day and then there are the “bad” organizations that fail to do that.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;He used Accelerate as reference for that statement.&lt;/p&gt;
+
+&lt;p&gt;That statement triggered something in me. On the one side I found it pretty hard to call organizations that are not able to deliver to production everyday “bad”. On the other hand I thought it might be necessary to be this hard in the communication just to ensure people are actually listening. 
+It’s like if &lt;a href=&quot;https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html&quot;&gt;Robert C. Martin&lt;/a&gt; would state &lt;em&gt;“It would be nice, if you as professional programmer, could be so kind and write some unit tests for your code”&lt;/em&gt; instead of &lt;em&gt;“You should not write a single line of prodction code without prior writing a failing unit test for it”.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;software-delivery-performance&quot;&gt;Software Delivery Performance&lt;/h1&gt;
+
+&lt;p&gt;Now I finally had the time to read Accelerate.&lt;/p&gt;
+
+&lt;p&gt;Accelerate is a write-up of the &lt;a href=&quot;https://puppet.com/blog-tags/state-devops&quot;&gt;“Accelerate - State of DevOps”&lt;/a&gt; researches from 2013 - 2017 along with a deep-enough dive into the scientific methods used, to collect and interpret the data, to give confidence in the findings.&lt;/p&gt;
+
+&lt;p&gt;The first question answered in the book is how to actually measure software delivery performance.
+The 4 measures selected by the researchers are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lead Time (“The time it takes to go from a customer making a request to the request being satisfied”)&lt;/li&gt;
+  &lt;li&gt;Deployment Frequency (“A software deployment to production or to an app store”)&lt;/li&gt;
+  &lt;li&gt;Mean Time to Restore&lt;/li&gt;
+  &lt;li&gt;Change Fail Percentage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lead Time and the Deployment Frequency are considered measures of the &lt;em&gt;tempo&lt;/em&gt; of software delivery performance.&lt;/p&gt;
+
+&lt;p&gt;Additionally the researches wanted to investigate if tempo gains happen at the expense of the stability.
+Acknowledging that failures in rapidly changing complex systems are inevitable the question &lt;em&gt;“How long it generally takes to restore service in case of an incident”&lt;/em&gt; was preferred to the standard measure of reliability (time between failures).&lt;/p&gt;
+
+&lt;p&gt;The final metric is what percentage of changes to production (software releases or infrastructure configuration changes) fail.&lt;/p&gt;
+
+&lt;p&gt;The analysis of the collected data regarding the software delivery performance revelead significantly different categories of performances:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2016&lt;/th&gt;
+      &lt;th&gt;High Performers&lt;/th&gt;
+      &lt;th&gt;Medium Performers&lt;/th&gt;
+      &lt;th&gt;Low Performers&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lead Time for Changes&lt;/td&gt;
+      &lt;td&gt;Less than one hour&lt;/td&gt;
+      &lt;td&gt;Between one week and one moth&lt;/td&gt;
+      &lt;td&gt;Between one month and six months&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Deployment Frequency&lt;/td&gt;
+      &lt;td&gt;On demand (multiple deploys per day)&lt;/td&gt;
+      &lt;td&gt;Between once per week and once per month&lt;/td&gt;
+      &lt;td&gt;Between once per month and once every six months&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Mean Time to Restore&lt;/td&gt;
+      &lt;td&gt;Less than one hour&lt;/td&gt;
+      &lt;td&gt;Less than one day&lt;/td&gt;
+      &lt;td&gt;Less than one day&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Change Failure Percentage&lt;/td&gt;
+      &lt;td&gt;0-15%&lt;/td&gt;
+      &lt;td&gt;31-45%&lt;/td&gt;
+      &lt;td&gt;16-30%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;One of the most interesting points I found in this book was that not only there is no trade-off between improving performance and achieving higher levels of stability and quality, but high performers do better &lt;em&gt;at all&lt;/em&gt; of these measures.&lt;/p&gt;
+
+&lt;h1 id=&quot;key-drivers-for-software-delivery-performance&quot;&gt;Key Drivers for Software Delivery Performance&lt;/h1&gt;
+
+&lt;p&gt;Based on these findings the researchers were looking for key capabilties that drive software delivery performances.&lt;/p&gt;
+
+&lt;p&gt;What they found are 5 categories with a total of 24 key capabilities detailed below.&lt;/p&gt;
+
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#continous-delivery&quot;&gt;Continous delivery&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Use version control&lt;/li&gt;
+      &lt;li&gt;Automate your deployment process&lt;/li&gt;
+      &lt;li&gt;Implement continous integration (CI)&lt;/li&gt;
+      &lt;li&gt;Use trunk-based development methods&lt;/li&gt;
+      &lt;li&gt;Implement test automation&lt;/li&gt;
+      &lt;li&gt;Support test data management&lt;/li&gt;
+      &lt;li&gt;Shift left on security&lt;/li&gt;
+      &lt;li&gt;Implement continous delivery&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#architecture&quot;&gt;Architecture&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Use a loosely coupled architecture&lt;/li&gt;
+      &lt;li&gt;Architect for empowered teams&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#product-and-process&quot;&gt;Product and process&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Gather and implement customer feedback&lt;/li&gt;
+      &lt;li&gt;Make the flow of work visible through the value stream&lt;/li&gt;
+      &lt;li&gt;Work in small batches&lt;/li&gt;
+      &lt;li&gt;Foster and enable team experimentation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#lean-management-and-monitoring&quot;&gt;Lean management and monitoring&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Have lightweight change approval processes&lt;/li&gt;
+      &lt;li&gt;Monitor across application and infrastructure to inform business decisions&lt;/li&gt;
+      &lt;li&gt;Check system health proactively&lt;/li&gt;
+      &lt;li&gt;Improve processes and manager work with work-in-progress (WIP) limits&lt;/li&gt;
+      &lt;li&gt;Visualize work to monitor quality and communicate throughout the team&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cultural&quot;&gt;Cultural&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Support a generative culture&lt;/li&gt;
+      &lt;li&gt;Encourage and support learning&lt;/li&gt;
+      &lt;li&gt;Support and facilitate collaboration among teams&lt;/li&gt;
+      &lt;li&gt;Provide resources and tools that make work meaningful&lt;/li&gt;
+      &lt;li&gt;Support or embody transformational leadership&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;continous-delivery&quot;&gt;Continous delivery&lt;/h2&gt;
+
+&lt;h3 id=&quot;use-version-control-for-all-production-artifacts&quot;&gt;Use version control for all production artifacts&lt;/h3&gt;
+
+&lt;p&gt;Although it might seem obvious to use version control for source code nowadays the researchers specifically mention to also have any configuration (system / application) and build or environment automation scripts under version control.&lt;/p&gt;
+
+&lt;h3 id=&quot;automate-your-deployment-process&quot;&gt;Automate your deployment process&lt;/h3&gt;
+
+&lt;p&gt;Computers should perform repetitive tasks so people can focus on solving problems. Therefore the less manual effort for deployments is needed the better it is. Also together with everything stored in version control it should be possible to easily replicate the production environment (without production data) in testing to be able to investigate errors.&lt;/p&gt;
+
+&lt;h3 id=&quot;implement-continous-integration-ci&quot;&gt;Implement continous integration (CI)&lt;/h3&gt;
+
+&lt;p&gt;Integrating each persons work at least daily wiht a following build including tests reduces the risk of integration problems compared to long lived feature branches and allows teams to develop cohesive software more rapidly. See also &lt;a href=&quot;https://martinfowler.com/articles/continuousIntegration.html&quot;&gt;Martin Fowler on Continuous Integration&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-trunk-based-development-methods&quot;&gt;Use trunk-based development methods&lt;/h3&gt;
+
+&lt;p&gt;There should not be more than 3 active branches at a time and the branches should only live for a very short time (e.g. 1 day). This reduces the risk and time needed for merging. It also seem to encourage refactorings.&lt;/p&gt;
+
+&lt;h3 id=&quot;implement-test-automation&quot;&gt;Implement test automation&lt;/h3&gt;
+
+&lt;p&gt;Again repetitive tasks should be done by computers. A &lt;em&gt;reliable&lt;/em&gt; testsuite gives teams confidence that their software is releasable.It’s worth investing ongoing effort in a reliable test suite (see also &lt;a href=&quot;https://martinfowler.com/articles/nonDeterminism.html&quot;&gt;Eradicating Non-Determinism in Tests&lt;/a&gt;. Another important note here is that acceptance tests should primarily be created and maintained by developers. Tests created by QA or an outsourced party is not correlated with IT performance.
+Testers are still essential though by performing exploratory, usability and acceptance testing and helping developers evolve the test suites.
+Once automated tests should regularly be run to give developers feedback.&lt;/p&gt;
+
+&lt;h3 id=&quot;support-test-data-management&quot;&gt;Support test data management&lt;/h3&gt;
+
+&lt;p&gt;To be able to run the automated tests it is important to have the correct test data. The management and the collection of necessary test data is therefore vital for smoothly running automated test suites.&lt;/p&gt;
+
+&lt;h3 id=&quot;shift-left-on-security&quot;&gt;Shift left on security&lt;/h3&gt;
+
+&lt;p&gt;Integrating feedback from information security teams early in the process e.g. during design or demos reduces the time needed to spend later on to fix security issues.&lt;/p&gt;
+
+&lt;h3 id=&quot;implement-continous-delivery-cd&quot;&gt;Implement continous delivery (CD)&lt;/h3&gt;
+
+&lt;p&gt;Continous delivery has positive impact on various aspects: delivery performance, quality, culture, reduced burnouts and deployment pain.
+Although of course this comes not for free. A lot of things have to be automated, team interaction and ways of working have to be rethought.&lt;/p&gt;
+
+&lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;/h2&gt;
+
+&lt;p&gt;The study found two architectural characteristics to be important for achieving high performance:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Can most of the testing be done without an integrated environment?&lt;/li&gt;
+  &lt;li&gt;Can an application be deployed independently of other applications/services it depends on?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;use-a-loosely-coupled-architecture&quot;&gt;Use a loosely coupled architecture&lt;/h3&gt;
+
+&lt;p&gt;Design systems that can be changed and validated independently. High performance teams require little communication between delivery teams to get their work done.&lt;/p&gt;
+
+&lt;h3 id=&quot;architect-for-empowered-teams&quot;&gt;Architect for empowered teams&lt;/h3&gt;
+
+&lt;p&gt;Having teams to choose tools and frameworks from an approved list prevents teams from choosing technologies that will be most suitable for their practical needs and from experimenting (learning) with new approaches and paradigms.&lt;/p&gt;
+
+&lt;p&gt;What tools or technologies you use is irrelevant if the people who must use them hate using them, or if they don’t achieve the outcomes they care about.&lt;/p&gt;
+
+&lt;p&gt;On the other side when tools provided make the engineers life actually easier, they will adopt them of their own free will.&lt;/p&gt;
+
+&lt;h2 id=&quot;product-and-process&quot;&gt;Product and process&lt;/h2&gt;
+
+&lt;h3 id=&quot;gather-and-implement-customer-feedback&quot;&gt;Gather and implement customer feedback&lt;/h3&gt;
+
+&lt;p&gt;It is important to software delivery performance to actively gather customer feedback and to incorporate this in the design of the product.&lt;/p&gt;
+
+&lt;h3 id=&quot;make-the-flow-of-work-visible-through-the-value-stream&quot;&gt;Make the flow of work visible through the value stream&lt;/h3&gt;
+
+&lt;p&gt;Having a good understanding and visibility of the flow of work from business all the way to the customer has a positive impact on performance.&lt;/p&gt;
+
+&lt;h3 id=&quot;work-in-small-batches&quot;&gt;Work in small batches&lt;/h3&gt;
+
+&lt;p&gt;Work should be decomposed in samll features that can be completed in a week or less. This enables short lead times and faster feedback loops.&lt;/p&gt;
+
+&lt;h3 id=&quot;foster-and-enable-team-experimentation&quot;&gt;Foster and enable team experimentation&lt;/h3&gt;
+
+&lt;p&gt;Development teams shouild be empowered to try out new ideas and create or update specifications during the process without requiring approval from outside. When combined wuth working in small batches, custoemr feedback and making the flow of work visible this can have a huge impact on performance.&lt;/p&gt;
+
+&lt;h2 id=&quot;lean-management-and-monitoring&quot;&gt;Lean management and monitoring&lt;/h2&gt;
+
+&lt;h3 id=&quot;have-lightweight-change-approval-processes&quot;&gt;Have lightweight change approval processes&lt;/h3&gt;
+
+&lt;p&gt;A change approval process based on peer review (code reviews / pair programming) results in a beeter performances than using change approval boards.&lt;/p&gt;
+
+&lt;h3 id=&quot;monitor-across-application-and-infrastructure-to-inform-business-decisions&quot;&gt;Monitor across application and infrastructure to inform business decisions&lt;/h3&gt;
+
+&lt;p&gt;Use monitoring data from instrastructure and applications to drive business decisions.&lt;/p&gt;
+
+&lt;h3 id=&quot;check-system-health-proactively&quot;&gt;Check system health proactively&lt;/h3&gt;
+
+&lt;p&gt;Rate-of-change and threshold warnings in monitoring systems allow teams to preemptively detect problems.&lt;/p&gt;
+
+&lt;h3 id=&quot;improve-processes-and-manager-work-with-work-in-progress-wip-limits&quot;&gt;Improve processes and manager work with work-in-progress (WIP) limits&lt;/h3&gt;
+
+&lt;p&gt;Visual WIP limits help drive process improvements, increase throughtput and makes constraints visible.&lt;/p&gt;
+
+&lt;h3 id=&quot;visualize-work-to-monitor-quality-and-communicate-throughout-the-team&quot;&gt;Visualize work to monitor quality and communicate throughout the team&lt;/h3&gt;
+
+&lt;p&gt;Software delivery performance is affected by visually displaying quality and WIP metrics.&lt;/p&gt;
+
+&lt;h2 id=&quot;cultural&quot;&gt;Cultural&lt;/h2&gt;
+
+&lt;h3 id=&quot;support-a-generative-culture-as-outlined-by-westrum&quot;&gt;Support a generative culture (as outlined by Westrum)&lt;/h3&gt;
+
+&lt;p&gt;A culture with good infortmation flow, high cooperation and trust, bridging between teams and conscious inquiry is predictive of IT performance.
+Check here for more on the cultural model defined by &lt;a href=&quot;https://continuousdelivery.com/implementing/culture/&quot;&gt;sociologist Ron Westrum&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;encourage-and-support-learning&quot;&gt;Encourage and support learning&lt;/h3&gt;
+
+&lt;p&gt;A job is satisfying if it makes good use of skills and abilities. In an ever changing environment, with a lot of tasks being automated more and more, it is important to build new skills, learn new approaches and paradigms.&lt;/p&gt;
+
+&lt;h3 id=&quot;support-and-facilitate-collaboration-among-teams&quot;&gt;Support and facilitate collaboration among teams&lt;/h3&gt;
+
+&lt;p&gt;Improve the interaction of previously siloed teams like development, operations and information security.&lt;/p&gt;
+
+&lt;h3 id=&quot;provide-resources-and-tools-that-make-work-meaningful&quot;&gt;Provide resources and tools that make work meaningful&lt;/h3&gt;
+
+&lt;p&gt;Another important point in job satisfaction is that the tools and resources needed to do the work are provided.&lt;/p&gt;
+
+&lt;h3 id=&quot;support-or-embody-transformational-leadership&quot;&gt;Support or embody transformational leadership&lt;/h3&gt;
+
+&lt;p&gt;Amplify the techincal and process work which is essential in DevOps. Five factors are key to this: Vision, intellectual stimulation, inspirational communication, supportive leadership and personal recognition.&lt;/p&gt;
+
+&lt;p&gt;The illustration of all the impacting factors can be seen below. (taken from &lt;a href=&quot;https://devops-research.com/assets/transformation_practices.pdf&quot;&gt;Overall Research Program&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/accelerate/overall-devops-research.png&quot; alt=&quot;Overall Research Programm&quot; title=&quot;Overall Research Programm&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Teaser Photo from &lt;a href=&quot;https://unsplash.com/@chuttersnap&quot;&gt;Chuttersnap&lt;/a&gt;@&lt;a href=&quot;https://unsplash.com/search/photos/speed&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Carlo</name></author><category term="architecture" /><category term="devops" /><category term="book" /><summary type="html">My abstract of the Book: &quot;Accelerate - The Science of Lean Software and DevOps&quot;</summary></entry><entry><title type="html">FriendLib - Intro to my current side project</title><link href="http://coding-and-cooking.com/coding/friendlib-intro/" rel="alternate" type="text/html" title="FriendLib - Intro to my current side project" /><published>2019-01-10T19:50:00+00:00</published><updated>2019-01-10T19:50:00+00:00</updated><id>http://coding-and-cooking.com/coding/friendlib-intro</id><content type="html" xml:base="http://coding-and-cooking.com/coding/friendlib-intro/">&lt;p&gt;Since August 2018 I’m working on a new side project called &lt;em&gt;FriendLib&lt;/em&gt;. 
 The basic idea about the app is that you can check which books your friends own and instead of buying the books you ask you friends if you can lend the book. 
 The name is a portmanteau of friendship and library.&lt;/p&gt;
 
@@ -47,7 +304,7 @@ The next day at the office, by chance a colleague started to talk about that new
 
 &lt;p&gt;&lt;em&gt;Teaser Photo by Alfons Morales on &lt;a href=&quot;https://unsplash.com/photos/YLSwjSy7stw?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;* personalized link&lt;/p&gt;</content><author><name>Carlo</name></author><summary type="html">Since a August 2018 I’m working on a new side project called FriendLib. The basic idea about the app is that you can check which books your friends own and instead of buying the books you ask you friends if you can lend the book. The name is a portmanteau of friendship and library.</summary></entry><entry><title type="html">A simple Web API using Claudia.js, AWS and DynamoDB</title><link href="http://coding-and-cooking.com/coding/simple-web-api-using-claudiajs/" rel="alternate" type="text/html" title="A simple Web API using Claudia.js, AWS and DynamoDB" /><published>2017-11-27T11:00:00+00:00</published><updated>2017-11-27T11:00:00+00:00</updated><id>http://coding-and-cooking.com/coding/simple-web-api-using-claudiajs</id><content type="html" xml:base="http://coding-and-cooking.com/coding/simple-web-api-using-claudiajs/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;* personalized link&lt;/p&gt;</content><author><name>Carlo</name></author><summary type="html">Since August 2018 I’m working on a new side project called FriendLib. The basic idea about the app is that you can check which books your friends own and instead of buying the books you ask you friends if you can lend the book. The name is a portmanteau of friendship and library.</summary></entry><entry><title type="html">A simple Web API using Claudia.js, AWS and DynamoDB</title><link href="http://coding-and-cooking.com/coding/simple-web-api-using-claudiajs/" rel="alternate" type="text/html" title="A simple Web API using Claudia.js, AWS and DynamoDB" /><published>2017-11-27T11:00:00+00:00</published><updated>2017-11-27T11:00:00+00:00</updated><id>http://coding-and-cooking.com/coding/simple-web-api-using-claudiajs</id><content type="html" xml:base="http://coding-and-cooking.com/coding/simple-web-api-using-claudiajs/">&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
 &lt;p&gt;Recently I played around with Claudia.js and AWS Lambda. And I thought that could be a good technical stack for the “Illegal or frowned upon” api.
 So I gave the Claudia.js API Builder a chance – and it was so easy that I want to quickly write this up here.&lt;/p&gt;
 
@@ -77,10 +334,10 @@ For the very basic examples please refer to the very good Tutorials and Document
 &lt;figure class=&quot;&quot;&gt;
   &lt;img src=&quot;/assets/images/simple-web-api/iofu-statement-dynamodb.png&quot; alt=&quot;DynamoDb config&quot; /&gt;
   
-    &lt;figcaption&gt;DynamoDB config.
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
+    &lt;figcaption&gt;
+      DynamoDB config.
+
+    &lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;step-2--initialize-the-project&quot;&gt;Step 2 – initialize the project&lt;/h2&gt;
 

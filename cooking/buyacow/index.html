@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -115,15 +115,26 @@
   </head>
 
   <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
 
     <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
 
-    <div class="masthead">
+    
+
+<div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
+        
         <a class="site-title" href="/">Coding and Cooking</a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/coding" >Coding</a>
@@ -241,8 +252,6 @@
             <li><a href="https://github.com/carlo-mr" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
           
         
-      
-
       
 
       
@@ -495,6 +504,46 @@ That’s something I personally like about this concept. As it brings me to try 
   <div class="archive__item-teaser">
     <img src=
            
+    "/assets/images/accelerate/teaser.jpg"
+    
+    alt="">
+  </div>
+  
+  <h2 class="archive__item-title" itemprop="headline">
+    
+    <a href="/coding/accelerate/" rel="permalink">Accelerate - The Science of Lean Software and DevOps
+</a>
+    
+  </h2>
+  
+  <p class="page__meta">
+    <span><i class="far fa-calendar" aria-hidden="true"></i> Jul 12 2019</span>
+    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  8 minute read
+</span>
+  </p>
+  
+  <p class="page__meta"></p>
+  <p class="archive__item-excerpt" itemprop="description">My abstract of the Book: “Accelerate - The Science of Lean Software and DevOps”
+</p>
+</article>
+</div>
+        
+          <!-- overwritten to include the post date -->
+
+
+
+
+<div class="grid__item">
+<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  
+  <div class="archive__item-teaser">
+    <img src=
+           
     "/assets/images/friendlib-intro/teaser.jpg"
     
     alt="">
@@ -519,8 +568,8 @@ That’s something I personally like about this concept. As it brings me to try 
   </p>
   
   <p class="page__meta"></p>
-  <p class="archive__item-excerpt" itemprop="description">Since a August 2018 I’m working on a new side project called FriendLib. 
-The basic idea about the app is that you can check which books your friends own and ...</p>
+  <p class="archive__item-excerpt" itemprop="description">Since August 2018 I’m working on a new side project called FriendLib. 
+The basic idea about the app is that you can check which books your friends own and in...</p>
 </article>
 </div>
         
@@ -603,46 +652,6 @@ The basic idea about the app is that you can check which books your friends own 
 </article>
 </div>
         
-          <!-- overwritten to include the post date -->
-
-
-
-
-<div class="grid__item">
-<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-  
-  <div class="archive__item-teaser">
-    <img src=
-           
-    "/assets/images/vegan-mousse/ingredients-mousse.jpg"
-    
-    alt="">
-  </div>
-  
-  <h2 class="archive__item-title" itemprop="headline">
-    
-    <a href="/cooking/vegan-mousse-au-chocolat/" rel="permalink">Vegan Mousse au Chocolat
-</a>
-    
-  </h2>
-  
-  <p class="page__meta">
-    <span><i class="far fa-calendar" aria-hidden="true"></i> Aug 26 2017</span>
-    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 minute read
-</span>
-  </p>
-  
-  <p class="page__meta"></p>
-  <p class="archive__item-excerpt" itemprop="description">Turning chick peas into mousse au chocolat
-</p>
-</article>
-</div>
-        
       </div>
     </div>
   
@@ -653,7 +662,7 @@ The basic idea about the app is that you can check which books your friends own 
 
     
 
-    <div class="page__footer">
+    <div id="footer" class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
 
@@ -691,7 +700,9 @@ The basic idea about the app is that you can check which books your friends own 
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
 
 
 
