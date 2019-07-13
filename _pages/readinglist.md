@@ -8,15 +8,19 @@ categories: jekyll update
 permalink: /readinglist/
 ---
 
-I'll use this page to keep track of what books I've read and what I want to read. Links are personalized.
+I'll use this page to keep track of books and articles that I've read or that I want to read. Links are personalized.
 
 # 2019
 
 ## Books
 
+[_Michael Ploed_: __Hands-on Domain-driven Design - by example__](https://leanpub.com/ddd-by-example)
+
 [_Daniel Kahneman & Thorsten Schmidt_: __Thinking, Fast & Slow__](https://amzn.to/2Rs4t1m)
 
 [_Nicole Forsgren, Jez Humble, Gene Kim_: __Accelerate: The Science of Lean Software and Devops: Building and Scaling High Performing Technology Organizations__](https://amzn.to/2H6Jzkp)
+
+[_Samin Nosrat_: _Salt. Fat. Acid. Heat._](https://amzn.to/2l75MnS)
 
 [_Hannah Fry_: __Hello World: How to be Human in the Age of the Machine__](https://amzn.to/2R5RIKn)
 
@@ -27,6 +31,22 @@ I'll use this page to keep track of what books I've read and what I want to read
 [_Matt Klein_: __Monorepos: Please don’t!__](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b)
 
 [_Umar Hansa_: __Chrome DevTools: The five most popular DevTools tips from 2018__](https://umaar.com/dev-tips/190-five-popular-2018-tips/)
+
+### April
+
+[How to setup Jest in an Ionic 4 project](https://medium.com/@gregor.woiwode/how-to-setup-jest-in-an-ionic-4-project-ff1e5b72dd79)
+
+[Ionic 4 template running tests with Jest](https://github.com/GregOnNet/ionic-4-jest-setup)
+
+[Jest Angular Example](https://github.com/McKratt/jest-angular-example)
+
+[Test with Jest AND Angular not end correctly](https://github.com/pact-foundation/pact-js/issues/213#issuecomment-423175705)
+
+[Multiple lambda Entries in claudia.json](https://github.com/claudiajs/claudia/issues/16)
+
+## Videos
+
+[_Nick Tune_: __Strategic Domain-Driven Design__](https://www.youtube.com/watch?v=hNW8bdTw_IU)
 
 
 # 2018
