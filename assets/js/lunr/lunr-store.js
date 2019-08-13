@@ -28,4 +28,9 @@ var store = [{
         "excerpt":"Introduction My first contact with the book “Accelerate - The Science of Lean Software and DevOps” was at the W-Jax conference in 2018. I think it was Eberhard Wolff who mentioned something in the lines of: There are “good” organizations/teams, they deliver (to production) at least once per day and...","categories": ["coding"],
         "tags": ["architecture","devops","book"],
         "url": "http://coding-and-cooking.com/coding/accelerate/",
-        "teaser":"http://coding-and-cooking.com/assets/images/accelerate/teaser.jpg"}]
+        "teaser":"http://coding-and-cooking.com/assets/images/accelerate/teaser.jpg"},{
+        "title": "Salt Fat Acid Heat - Mastering the Elements of Good Cooking",
+        "excerpt":"“Commit to mastering salt, fat, acid and heat and you can become a great cook.” Salt Fat Acid Heat is probably the cookbook that changed the way I approach cooking the most. I own various cookbooks from different authors, but usually they “just” contain a list of recipes alongside some...","categories": ["coding"],
+        "tags": ["cooking","book"],
+        "url": "http://coding-and-cooking.com/coding/salt-fat-acid-heat/",
+        "teaser":"http://coding-and-cooking.com/assets/images/saltfatacidheat/teaser.jpg"}]

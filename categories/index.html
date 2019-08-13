@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -12,6 +12,8 @@
 <!-- begin _includes/seo.html --><title>Posts by Category - Coding and Cooking</title>
 <meta name="description" content="">
 
+
+  <meta name="author" content="Carlo">
 
 
 <meta property="og:type" content="website">
@@ -49,19 +51,16 @@
 
 
 
-
-
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
       "@type": "Person",
       "name": "Carlo",
-      "url": "http://coding-and-cooking.com",
-      "sameAs": null
-    }
-  </script>
-
+      "url": "http://coding-and-cooking.com/"
+    
+  }
+</script>
 
 
 
@@ -129,7 +128,10 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-        <a class="site-title" href="/">Coding and Cooking</a>
+        <a class="site-title" href="/">
+          Coding and Cooking
+          
+        </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/coding" >Coding</a>
             </li><li class="masthead__menu-item">
@@ -179,11 +181,12 @@
       <h3 class="author__name" itemprop="name">Carlo</h3>
     
     
-      <p class="author__bio" itemprop="description">
-        Hello,
+      <div class="author__bio" itemprop="description">
+        <p>Hello,
  I’m software developer and architect mainly Java (Spring) and Angular 2+.
- Also I am a passionate cook and like to cook for family and friends.
-      </p>
+ Also I am a passionate cook and like to cook for family and friends.</p>
+
+      </div>
     
   </div>
 
@@ -292,9 +295,15 @@
       
         <li>
           <a href="#coding">
-            <strong>coding</strong> <span class="taxonomy__count">4</span>
+            <strong>coding</strong> <span class="taxonomy__count">5</span>
           </a>
         </li>
+      
+    
+  
+    
+      
+    
       
     
   
@@ -332,6 +341,38 @@
       <section id="coding" class="taxonomy__section">
         <h2 class="archive__subtitle">coding</h2>
         <div class="entries-list">
+          
+            <!-- overwritten to include the post date -->
+
+
+
+
+<div class="list__item">
+<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  
+  <h2 class="archive__item-title" itemprop="headline">
+    
+    <a href="/coding/salt-fat-acid-heat/" rel="permalink">Salt Fat Acid Heat - Mastering the Elements of Good Cooking
+</a>
+    
+  </h2>
+  
+  <p class="page__meta">
+    <span><i class="far fa-calendar" aria-hidden="true"></i> Aug 13 2019</span>
+    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+</span>
+  </p>
+  
+  <p class="page__meta"></p>
+  <p class="archive__item-excerpt" itemprop="description">My take aways from the Book: “Salt Fat Acid Heat”
+</p>
+</article>
+</div>
           
             <!-- overwritten to include the post date -->
 
@@ -463,6 +504,12 @@ The basic idea about the app is that you can check which books your friends own 
         </div>
         <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
       </section>
+    
+  
+
+  
+    
+  
     
   
 
