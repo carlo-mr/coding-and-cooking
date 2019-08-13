@@ -20,7 +20,7 @@ I'll use this page to keep track of books and articles that I've read or that I 
 
 [_Nicole Forsgren, Jez Humble, Gene Kim_: __Accelerate: The Science of Lean Software and Devops: Building and Scaling High Performing Technology Organizations__](https://amzn.to/2H6Jzkp)
 
-[_Samin Nosrat_: _Salt. Fat. Acid. Heat._](https://amzn.to/2l75MnS)
+[_Samin Nosrat_: __Salt Fat Acid Heat__](https://amzn.to/2l75MnS)
 
 [_Hannah Fry_: __Hello World: How to be Human in the Age of the Machine__](https://amzn.to/2R5RIKn)
 
