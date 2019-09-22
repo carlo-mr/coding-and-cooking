@@ -68,15 +68,15 @@ What they found are 5 categories with a total of 24 key capabilities detailed be
 
 ## Overview
 
-* [Continous delivery](#continous-delivery)
+* [Continuous delivery](#continuous-delivery)
   * Use version control
   * Automate your deployment process
-  * Implement continous integration (CI)
+  * Implement continuous integration (CI)
   * Use trunk-based development methods
   * Implement test automation
   * Support test data management
   * Shift left on security
-  * Implement continous delivery
+  * Implement continuous delivery
 
 * [Architecture](#architecture)
   * Use a loosely coupled architecture
@@ -103,7 +103,7 @@ What they found are 5 categories with a total of 24 key capabilities detailed be
   * Provide resources and tools that make work meaningful
   * Support or embody transformational leadership
 
-## Continous delivery
+## Continuous delivery
 
 ### Use version control for all production artifacts
 
@@ -114,9 +114,9 @@ Although it might seem obvious to use version control for source code nowadays t
 Computers should perform repetitive tasks so people can focus on solving problems. Therefore the less manual effort for deployments is needed the better it is. Also together with everything stored in version control it should be possible to easily replicate the production environment (without production data) in testing to be able to investigate errors.
 
 
-### Implement continous integration (CI)
+### Implement continuous integration (CI)
 
-Integrating each persons work at least daily wiht a following build including tests reduces the risk of integration problems compared to long lived feature branches and allows teams to develop cohesive software more rapidly. See also [Martin Fowler on Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html).
+Integrating each persons work at least daily with a following build including tests reduces the risk of integration problems compared to long lived feature branches and allows teams to develop cohesive software more rapidly. See also [Martin Fowler on Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html).
 
 
 ### Use trunk-based development methods
@@ -125,7 +125,8 @@ There should not be more than 3 active branches at a time and the branches shoul
 
 ### Implement test automation
 
-Again repetitive tasks should be done by computers. A _reliable_ testsuite gives teams confidence that their software is releasable.It's worth investing ongoing effort in a reliable test suite (see also [Eradicating Non-Determinism in Tests](https://martinfowler.com/articles/nonDeterminism.html). Another important note here is that acceptance tests should primarily be created and maintained by developers. Tests created by QA or an outsourced party is not correlated with IT performance.
+Again repetitive tasks should be done by computers. A _reliable_ test suite gives teams confidence that their software is releasable. 
+It's worth investing ongoing effort in a reliable test suite (see also [Eradicating Non-Determinism in Tests](https://martinfowler.com/articles/nonDeterminism.html). Another important note here is that acceptance tests should primarily be created and maintained by developers. Tests created by QA or an outsourced party is not correlated with IT performance.
 Testers are still essential though by performing exploratory, usability and acceptance testing and helping developers evolve the test suites.
 Once automated tests should regularly be run to give developers feedback.
 
@@ -137,9 +138,9 @@ To be able to run the automated tests it is important to have the correct test d
 
 Integrating feedback from information security teams early in the process e.g. during design or demos reduces the time needed to spend later on to fix security issues.
 
-### Implement continous delivery (CD)
+### Implement continuous delivery (CD)
 
-Continous delivery has positive impact on various aspects: delivery performance, quality, culture, reduced burnouts and deployment pain.
+continuous delivery has positive impact on various aspects: delivery performance, quality, culture, reduced burnouts and deployment pain.
 Although of course this comes not for free. A lot of things have to be automated, team interaction and ways of working have to be rethought.
 
 ## Architecture
@@ -173,7 +174,7 @@ Having a good understanding and visibility of the flow of work from business all
 
 ### Work in small batches
 
-Work should be decomposed in samll features that can be completed in a week or less. This enables short lead times and faster feedback loops.
+Work should be decomposed in small features that can be completed in a week or less. This enables short lead times and faster feedback loops.
 
 ### Foster and enable team experimentation
 
@@ -183,11 +184,11 @@ Development teams shouild be empowered to try out new ideas and create or update
 
 ### Have lightweight change approval processes
 
-A change approval process based on peer review (code reviews / pair programming) results in a beeter performances than using change approval boards.
+A change approval process based on peer review (code reviews / pair programming) results in a better performance than using change approval boards.
 
 ### Monitor across application and infrastructure to inform business decisions
 
-Use monitoring data from instrastructure and applications to drive business decisions.
+Use monitoring data from infrastructure and applications to drive business decisions.
 
 ### Check system health proactively
 
@@ -195,7 +196,7 @@ Rate-of-change and threshold warnings in monitoring systems allow teams to preem
 
 ### Improve processes and manager work with work-in-progress (WIP) limits
 
-Visual WIP limits help drive process improvements, increase throughtput and makes constraints visible.
+Visual WIP limits help drive process improvements, increase throughput and makes constraints visible.
 
 ### Visualize work to monitor quality and communicate throughout the team
 
@@ -205,7 +206,7 @@ Software delivery performance is affected by visually displaying quality and WIP
 
 ### Support a generative culture (as outlined by Westrum)
 
-A culture with good infortmation flow, high cooperation and trust, bridging between teams and conscious inquiry is predictive of IT performance.
+A culture with good information flow, high cooperation and trust, bridging between teams and conscious inquiry is predictive of IT performance.
 Check here for more on the cultural model defined by [sociologist Ron Westrum](https://continuousdelivery.com/implementing/culture/).
 
 ### Encourage and support learning
@@ -222,7 +223,7 @@ Another important point in job satisfaction is that the tools and resources need
 
 ### Support or embody transformational leadership
 
-Amplify the techincal and process work which is essential in DevOps. Five factors are key to this: Vision, intellectual stimulation, inspirational communication, supportive leadership and personal recognition.
+Amplify the technical and process work which is essential in DevOps. Five factors are key to this: Vision, intellectual stimulation, inspirational communication, supportive leadership and personal recognition.
 
 
 The illustration of all the impacting factors can be seen below. (taken from [Overall Research Program](https://devops-research.com/assets/transformation_practices.pdf))
