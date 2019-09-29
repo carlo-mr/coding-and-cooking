@@ -22,6 +22,14 @@ I'll use this page to keep track of books and articles that I've read or that I 
 
 [_Samin Nosrat_: __Salt Fat Acid Heat__](https://amzn.to/2l75MnS)
 
+[_Randall Munroe_: __What If?: Serious Scientific Answers to Absurd Hypothetical Questions__](https://amzn.to/2np6kGI)
+
+[_Bas Kast_: __Der Ernährungskompass__](https://amzn.to/2lQw52b)
+
+[_Mai Thi Nguyen-Kim_: __Komisch, alles chemisch!__](https://amzn.to/2nZcGgb)
+
+[_Gene Kim_: __Phoenix Project: A Novel about It, Devops, and Helping Your Business Win__](https://amzn.to/2o5YMsS)
+
 [_Hannah Fry_: __Hello World: How to be Human in the Age of the Machine__](https://amzn.to/2R5RIKn)
 
 ## Articles
