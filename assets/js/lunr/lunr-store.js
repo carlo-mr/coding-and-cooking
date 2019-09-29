@@ -33,4 +33,9 @@ var store = [{
         "excerpt":"“Commit to mastering salt, fat, acid and heat and you can become a great cook.” Salt Fat Acid Heat is probably the cookbook that changed the way I approach cooking the most. I own various cookbooks from different authors, but usually they “just” contain a list of recipes alongside some...","categories": ["coding"],
         "tags": ["cooking","book"],
         "url": "http://coding-and-cooking.com/coding/salt-fat-acid-heat/",
-        "teaser":"http://coding-and-cooking.com/assets/images/saltfatacidheat/teaser.jpg"}]
+        "teaser":"http://coding-and-cooking.com/assets/images/saltfatacidheat/teaser.jpg"},{
+        "title": "Korma and Tikka Masala Paste",
+        "excerpt":"Intro I was on trying to find a great mango chicken recipe. So I read a few recipes and found out that they are mostly identical. The biggest difference seemed to be the used curry paste. Some used a Korma style paste whereas others used a Tikka Masala. I decided...","categories": ["cooking"],
+        "tags": ["curry","vegan"],
+        "url": "http://coding-and-cooking.com/cooking/curry-paste/",
+        "teaser":"http://coding-and-cooking.com/assets/images/currypaste/tikka_01.jpg"}]

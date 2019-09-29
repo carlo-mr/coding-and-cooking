@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.16.6 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -430,16 +430,16 @@ Acknowledging that failures in rapidly changing complex systems are inevitable t
 <h2 id="overview">Overview</h2>
 
 <ul>
-  <li><a href="#continous-delivery">Continous delivery</a>
+  <li><a href="#continuous-delivery">Continuous delivery</a>
     <ul>
       <li>Use version control</li>
       <li>Automate your deployment process</li>
-      <li>Implement continous integration (CI)</li>
+      <li>Implement continuous integration (CI)</li>
       <li>Use trunk-based development methods</li>
       <li>Implement test automation</li>
       <li>Support test data management</li>
       <li>Shift left on security</li>
-      <li>Implement continous delivery</li>
+      <li>Implement continuous delivery</li>
     </ul>
   </li>
   <li><a href="#architecture">Architecture</a>
@@ -476,7 +476,7 @@ Acknowledging that failures in rapidly changing complex systems are inevitable t
   </li>
 </ul>
 
-<h2 id="continous-delivery">Continous delivery</h2>
+<h2 id="continuous-delivery">Continuous delivery</h2>
 
 <h3 id="use-version-control-for-all-production-artifacts">Use version control for all production artifacts</h3>
 
@@ -486,9 +486,9 @@ Acknowledging that failures in rapidly changing complex systems are inevitable t
 
 <p>Computers should perform repetitive tasks so people can focus on solving problems. Therefore the less manual effort for deployments is needed the better it is. Also together with everything stored in version control it should be possible to easily replicate the production environment (without production data) in testing to be able to investigate errors.</p>
 
-<h3 id="implement-continous-integration-ci">Implement continous integration (CI)</h3>
+<h3 id="implement-continuous-integration-ci">Implement continuous integration (CI)</h3>
 
-<p>Integrating each persons work at least daily wiht a following build including tests reduces the risk of integration problems compared to long lived feature branches and allows teams to develop cohesive software more rapidly. See also <a href="https://martinfowler.com/articles/continuousIntegration.html">Martin Fowler on Continuous Integration</a>.</p>
+<p>Integrating each persons work at least daily with a following build including tests reduces the risk of integration problems compared to long lived feature branches and allows teams to develop cohesive software more rapidly. See also <a href="https://martinfowler.com/articles/continuousIntegration.html">Martin Fowler on Continuous Integration</a>.</p>
 
 <h3 id="use-trunk-based-development-methods">Use trunk-based development methods</h3>
 
@@ -496,7 +496,8 @@ Acknowledging that failures in rapidly changing complex systems are inevitable t
 
 <h3 id="implement-test-automation">Implement test automation</h3>
 
-<p>Again repetitive tasks should be done by computers. A <em>reliable</em> testsuite gives teams confidence that their software is releasable.It’s worth investing ongoing effort in a reliable test suite (see also <a href="https://martinfowler.com/articles/nonDeterminism.html">Eradicating Non-Determinism in Tests</a>. Another important note here is that acceptance tests should primarily be created and maintained by developers. Tests created by QA or an outsourced party is not correlated with IT performance.
+<p>Again repetitive tasks should be done by computers. A <em>reliable</em> test suite gives teams confidence that their software is releasable. 
+It’s worth investing ongoing effort in a reliable test suite (see also <a href="https://martinfowler.com/articles/nonDeterminism.html">Eradicating Non-Determinism in Tests</a>. Another important note here is that acceptance tests should primarily be created and maintained by developers. Tests created by QA or an outsourced party is not correlated with IT performance.
 Testers are still essential though by performing exploratory, usability and acceptance testing and helping developers evolve the test suites.
 Once automated tests should regularly be run to give developers feedback.</p>
 
@@ -508,9 +509,9 @@ Once automated tests should regularly be run to give developers feedback.</p>
 
 <p>Integrating feedback from information security teams early in the process e.g. during design or demos reduces the time needed to spend later on to fix security issues.</p>
 
-<h3 id="implement-continous-delivery-cd">Implement continous delivery (CD)</h3>
+<h3 id="implement-continuous-delivery-cd">Implement continuous delivery (CD)</h3>
 
-<p>Continous delivery has positive impact on various aspects: delivery performance, quality, culture, reduced burnouts and deployment pain.
+<p>continuous delivery has positive impact on various aspects: delivery performance, quality, culture, reduced burnouts and deployment pain.
 Although of course this comes not for free. A lot of things have to be automated, team interaction and ways of working have to be rethought.</p>
 
 <h2 id="architecture">Architecture</h2>
@@ -546,7 +547,7 @@ Although of course this comes not for free. A lot of things have to be automated
 
 <h3 id="work-in-small-batches">Work in small batches</h3>
 
-<p>Work should be decomposed in samll features that can be completed in a week or less. This enables short lead times and faster feedback loops.</p>
+<p>Work should be decomposed in small features that can be completed in a week or less. This enables short lead times and faster feedback loops.</p>
 
 <h3 id="foster-and-enable-team-experimentation">Foster and enable team experimentation</h3>
 
@@ -556,11 +557,11 @@ Although of course this comes not for free. A lot of things have to be automated
 
 <h3 id="have-lightweight-change-approval-processes">Have lightweight change approval processes</h3>
 
-<p>A change approval process based on peer review (code reviews / pair programming) results in a beeter performances than using change approval boards.</p>
+<p>A change approval process based on peer review (code reviews / pair programming) results in a better performance than using change approval boards.</p>
 
 <h3 id="monitor-across-application-and-infrastructure-to-inform-business-decisions">Monitor across application and infrastructure to inform business decisions</h3>
 
-<p>Use monitoring data from instrastructure and applications to drive business decisions.</p>
+<p>Use monitoring data from infrastructure and applications to drive business decisions.</p>
 
 <h3 id="check-system-health-proactively">Check system health proactively</h3>
 
@@ -568,7 +569,7 @@ Although of course this comes not for free. A lot of things have to be automated
 
 <h3 id="improve-processes-and-manager-work-with-work-in-progress-wip-limits">Improve processes and manager work with work-in-progress (WIP) limits</h3>
 
-<p>Visual WIP limits help drive process improvements, increase throughtput and makes constraints visible.</p>
+<p>Visual WIP limits help drive process improvements, increase throughput and makes constraints visible.</p>
 
 <h3 id="visualize-work-to-monitor-quality-and-communicate-throughout-the-team">Visualize work to monitor quality and communicate throughout the team</h3>
 
@@ -578,7 +579,7 @@ Although of course this comes not for free. A lot of things have to be automated
 
 <h3 id="support-a-generative-culture-as-outlined-by-westrum">Support a generative culture (as outlined by Westrum)</h3>
 
-<p>A culture with good infortmation flow, high cooperation and trust, bridging between teams and conscious inquiry is predictive of IT performance.
+<p>A culture with good information flow, high cooperation and trust, bridging between teams and conscious inquiry is predictive of IT performance.
 Check here for more on the cultural model defined by <a href="https://continuousdelivery.com/implementing/culture/">sociologist Ron Westrum</a>.</p>
 
 <h3 id="encourage-and-support-learning">Encourage and support learning</h3>
@@ -595,7 +596,7 @@ Check here for more on the cultural model defined by <a href="https://continuous
 
 <h3 id="support-or-embody-transformational-leadership">Support or embody transformational leadership</h3>
 
-<p>Amplify the techincal and process work which is essential in DevOps. Five factors are key to this: Vision, intellectual stimulation, inspirational communication, supportive leadership and personal recognition.</p>
+<p>Amplify the technical and process work which is essential in DevOps. Five factors are key to this: Vision, intellectual stimulation, inspirational communication, supportive leadership and personal recognition.</p>
 
 <p>The illustration of all the impacting factors can be seen below. (taken from <a href="https://devops-research.com/assets/transformation_practices.pdf">Overall Research Program</a>)</p>
 
@@ -675,6 +676,46 @@ Check here for more on the cultural model defined by <a href="https://continuous
     <div class="page__related">
       <h4 class="page__related-title">You may also enjoy</h4>
       <div class="grid__wrapper">
+        
+          <!-- overwritten to include the post date -->
+
+
+
+
+<div class="grid__item">
+<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  
+  <div class="archive__item-teaser">
+    <img src=
+           
+    "/assets/images/currypaste/tikka_01.jpg"
+    
+    alt="">
+  </div>
+  
+  <h2 class="archive__item-title" itemprop="headline">
+    
+    <a href="/cooking/curry-paste/" rel="permalink">Korma and Tikka Masala Paste
+</a>
+    
+  </h2>
+  
+  <p class="page__meta">
+    <span><i class="far fa-calendar" aria-hidden="true"></i> Sep 29 2019</span>
+    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+</span>
+  </p>
+  
+  <p class="page__meta"></p>
+  <p class="archive__item-excerpt" itemprop="description">How to simply create delicious curry pastes
+</p>
+</article>
+</div>
         
           <!-- overwritten to include the post date -->
 
@@ -793,45 +834,6 @@ The basic idea about the app is that you can check which books your friends own 
   <p class="page__meta"></p>
   <p class="archive__item-excerpt" itemprop="description">Recently I played around with Claudia.js and AWS Lambda.
 </p>
-</article>
-</div>
-        
-          <!-- overwritten to include the post date -->
-
-
-
-
-<div class="grid__item">
-<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-  
-  <div class="archive__item-teaser">
-    <img src=
-           
-    "/assets/images/architect-duties/teaser.jpg"
-    
-    alt="">
-  </div>
-  
-  <h2 class="archive__item-title" itemprop="headline">
-    
-    <a href="/coding/duties-of-a-software-architect/" rel="permalink">The Duties of a Software Architect
-</a>
-    
-  </h2>
-  
-  <p class="page__meta">
-    <span><i class="far fa-calendar" aria-hidden="true"></i> Oct 03 2017</span>
-    <span class="align-right"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  5 minute read
-</span>
-  </p>
-  
-  <p class="page__meta"></p>
-  <p class="archive__item-excerpt" itemprop="description">A write up of the 6 duties of a software architect. Requirement clarification, Communication, Structure Design, Transversal Concepts Design, Implementation A...</p>
 </article>
 </div>
         
